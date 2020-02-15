@@ -24,6 +24,9 @@
 		E0BE500623F8185700CA8CB0 /* Service.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0BE500523F8185700CA8CB0 /* Service.swift */; };
 		E0BE500923F818CA00CA8CB0 /* ServiceError.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0BE500823F818CA00CA8CB0 /* ServiceError.swift */; };
 		E0BE500B23F81B4700CA8CB0 /* ServiceRouteTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0BE500A23F81B4700CA8CB0 /* ServiceRouteTest.swift */; };
+		E0BE500D23F8239B00CA8CB0 /* ReadJson.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0BE500C23F8239B00CA8CB0 /* ReadJson.swift */; };
+		E0BE500F23F824CB00CA8CB0 /* CheapestRouteTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0BE500E23F824CB00CA8CB0 /* CheapestRouteTest.swift */; };
+		E0BE501123F86FA500CA8CB0 /* CheapestRouteCalculator.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0BE501023F86FA500CA8CB0 /* CheapestRouteCalculator.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -68,6 +71,9 @@
 		E0BE500523F8185700CA8CB0 /* Service.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Service.swift; sourceTree = "<group>"; };
 		E0BE500823F818CA00CA8CB0 /* ServiceError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceError.swift; sourceTree = "<group>"; };
 		E0BE500A23F81B4700CA8CB0 /* ServiceRouteTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceRouteTest.swift; sourceTree = "<group>"; };
+		E0BE500C23F8239B00CA8CB0 /* ReadJson.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReadJson.swift; sourceTree = "<group>"; };
+		E0BE500E23F824CB00CA8CB0 /* CheapestRouteTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheapestRouteTest.swift; sourceTree = "<group>"; };
+		E0BE501023F86FA500CA8CB0 /* CheapestRouteCalculator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheapestRouteCalculator.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -132,9 +138,11 @@
 		E0BE4FD623F8039000CA8CB0 /* routeTests */ = {
 			isa = PBXGroup;
 			children = (
+				E0BE500E23F824CB00CA8CB0 /* CheapestRouteTest.swift */,
 				E0BE4FFC23F80FF600CA8CB0 /* ReadJsonTest.swift */,
 				E0BE4FD723F8039000CA8CB0 /* RouteTests.swift */,
 				E0BE500A23F81B4700CA8CB0 /* ServiceRouteTest.swift */,
+				E0BE500C23F8239B00CA8CB0 /* ReadJson.swift */,
 				E0BE4FD923F8039000CA8CB0 /* Info.plist */,
 				E0BE4FF123F80A6600CA8CB0 /* connections.json */,
 			);
@@ -185,6 +193,7 @@
 			children = (
 				E0BE500523F8185700CA8CB0 /* Service.swift */,
 				E0BE500823F818CA00CA8CB0 /* ServiceError.swift */,
+				E0BE501023F86FA500CA8CB0 /* CheapestRouteCalculator.swift */,
 			);
 			path = Service;
 			sourceTree = "<group>";
@@ -350,6 +359,7 @@
 				E0BE500223F8171600CA8CB0 /* Keys.swift in Sources */,
 				E0BE500923F818CA00CA8CB0 /* ServiceError.swift in Sources */,
 				E0BE4FC123F8038D00CA8CB0 /* SceneDelegate.swift in Sources */,
+				E0BE501123F86FA500CA8CB0 /* CheapestRouteCalculator.swift in Sources */,
 				E0BE4FF423F80B9A00CA8CB0 /* ListConnection.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -361,6 +371,8 @@
 				E0BE4FD823F8039000CA8CB0 /* RouteTests.swift in Sources */,
 				E0BE500B23F81B4700CA8CB0 /* ServiceRouteTest.swift in Sources */,
 				E0BE4FFD23F80FF600CA8CB0 /* ReadJsonTest.swift in Sources */,
+				E0BE500F23F824CB00CA8CB0 /* CheapestRouteTest.swift in Sources */,
+				E0BE500D23F8239B00CA8CB0 /* ReadJson.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

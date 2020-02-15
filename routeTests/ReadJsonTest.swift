@@ -12,7 +12,8 @@ import XCTest
 class ReadJsonTest: XCTestCase {
 
     func testShouldReadConnectionsList() throws {
-        let listConnections = try loadDataFromFile(named: "connections",
+
+        let listConnections = try ReadJson().loadDataFromFile(named: "connections",
                                               ofType: ".json",
                                               typeClass: ListConnection.self)
 
@@ -21,18 +22,4 @@ class ReadJsonTest: XCTestCase {
         XCTAssertEqual(listConnections.connections.count, 9)
     }
 
-}
-
-extension ReadJsonTest {
-
-    private func loadDataFromFile<T>(named: String,
-                                     ofType: String,
-                                     typeClass: T.Type) throws -> T where T: Decodable {
-
-        let testBundle = Bundle(for: type(of: self))
-        let path = testBundle.path(forResource: named, ofType: ofType)
-        let data = try Data(contentsOf: URL(fileURLWithPath: path!))
-        let dto = try JSONDecoder().decode(T.self, from: data)
-        return dto
-    }
 }
