@@ -19,6 +19,11 @@
 		E0BE4FF723F80BBE00CA8CB0 /* Connection.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0BE4FF623F80BBE00CA8CB0 /* Connection.swift */; };
 		E0BE4FF923F80BF700CA8CB0 /* Coordinate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0BE4FF823F80BF700CA8CB0 /* Coordinate.swift */; };
 		E0BE4FFD23F80FF600CA8CB0 /* ReadJsonTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0BE4FFC23F80FF600CA8CB0 /* ReadJsonTest.swift */; };
+		E0BE500023F816F800CA8CB0 /* Environment.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0BE4FFF23F816F800CA8CB0 /* Environment.swift */; };
+		E0BE500223F8171600CA8CB0 /* Keys.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0BE500123F8171600CA8CB0 /* Keys.swift */; };
+		E0BE500623F8185700CA8CB0 /* Service.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0BE500523F8185700CA8CB0 /* Service.swift */; };
+		E0BE500923F818CA00CA8CB0 /* ServiceError.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0BE500823F818CA00CA8CB0 /* ServiceError.swift */; };
+		E0BE500B23F81B4700CA8CB0 /* ServiceRouteTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0BE500A23F81B4700CA8CB0 /* ServiceRouteTest.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -57,6 +62,12 @@
 		E0BE4FF623F80BBE00CA8CB0 /* Connection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Connection.swift; sourceTree = "<group>"; };
 		E0BE4FF823F80BF700CA8CB0 /* Coordinate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinate.swift; sourceTree = "<group>"; };
 		E0BE4FFC23F80FF600CA8CB0 /* ReadJsonTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReadJsonTest.swift; sourceTree = "<group>"; };
+		E0BE4FFE23F8166E00CA8CB0 /* Build.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Build.xcconfig; sourceTree = "<group>"; };
+		E0BE4FFF23F816F800CA8CB0 /* Environment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Environment.swift; sourceTree = "<group>"; };
+		E0BE500123F8171600CA8CB0 /* Keys.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Keys.swift; sourceTree = "<group>"; };
+		E0BE500523F8185700CA8CB0 /* Service.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Service.swift; sourceTree = "<group>"; };
+		E0BE500823F818CA00CA8CB0 /* ServiceError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceError.swift; sourceTree = "<group>"; };
+		E0BE500A23F81B4700CA8CB0 /* ServiceRouteTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceRouteTest.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -109,11 +120,11 @@
 			children = (
 				E0BE4FBE23F8038D00CA8CB0 /* AppDelegate.swift */,
 				E0BE4FC023F8038D00CA8CB0 /* SceneDelegate.swift */,
-				E0BE4FC623F8038D00CA8CB0 /* Main.storyboard */,
-				E0BE4FC923F8039000CA8CB0 /* Assets.xcassets */,
-				E0BE4FCB23F8039000CA8CB0 /* LaunchScreen.storyboard */,
 				E0BE4FCE23F8039000CA8CB0 /* Info.plist */,
+				E0BE500423F8174900CA8CB0 /* Resource */,
+				E0BE500323F8172F00CA8CB0 /* Config */,
 				E0BE4FF523F80BA000CA8CB0 /* Model */,
+				E0BE500723F8186200CA8CB0 /* Service */,
 			);
 			path = route;
 			sourceTree = "<group>";
@@ -123,6 +134,7 @@
 			children = (
 				E0BE4FFC23F80FF600CA8CB0 /* ReadJsonTest.swift */,
 				E0BE4FD723F8039000CA8CB0 /* RouteTests.swift */,
+				E0BE500A23F81B4700CA8CB0 /* ServiceRouteTest.swift */,
 				E0BE4FD923F8039000CA8CB0 /* Info.plist */,
 				E0BE4FF123F80A6600CA8CB0 /* connections.json */,
 			);
@@ -146,6 +158,35 @@
 				E0BE4FF823F80BF700CA8CB0 /* Coordinate.swift */,
 			);
 			path = Model;
+			sourceTree = "<group>";
+		};
+		E0BE500323F8172F00CA8CB0 /* Config */ = {
+			isa = PBXGroup;
+			children = (
+				E0BE500123F8171600CA8CB0 /* Keys.swift */,
+				E0BE4FFF23F816F800CA8CB0 /* Environment.swift */,
+				E0BE4FFE23F8166E00CA8CB0 /* Build.xcconfig */,
+			);
+			path = Config;
+			sourceTree = "<group>";
+		};
+		E0BE500423F8174900CA8CB0 /* Resource */ = {
+			isa = PBXGroup;
+			children = (
+				E0BE4FC623F8038D00CA8CB0 /* Main.storyboard */,
+				E0BE4FC923F8039000CA8CB0 /* Assets.xcassets */,
+				E0BE4FCB23F8039000CA8CB0 /* LaunchScreen.storyboard */,
+			);
+			path = Resource;
+			sourceTree = "<group>";
+		};
+		E0BE500723F8186200CA8CB0 /* Service */ = {
+			isa = PBXGroup;
+			children = (
+				E0BE500523F8185700CA8CB0 /* Service.swift */,
+				E0BE500823F818CA00CA8CB0 /* ServiceError.swift */,
+			);
+			path = Service;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -302,8 +343,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				E0BE4FF923F80BF700CA8CB0 /* Coordinate.swift in Sources */,
+				E0BE500623F8185700CA8CB0 /* Service.swift in Sources */,
+				E0BE500023F816F800CA8CB0 /* Environment.swift in Sources */,
 				E0BE4FBF23F8038D00CA8CB0 /* AppDelegate.swift in Sources */,
 				E0BE4FF723F80BBE00CA8CB0 /* Connection.swift in Sources */,
+				E0BE500223F8171600CA8CB0 /* Keys.swift in Sources */,
+				E0BE500923F818CA00CA8CB0 /* ServiceError.swift in Sources */,
 				E0BE4FC123F8038D00CA8CB0 /* SceneDelegate.swift in Sources */,
 				E0BE4FF423F80B9A00CA8CB0 /* ListConnection.swift in Sources */,
 			);
@@ -314,6 +359,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				E0BE4FD823F8039000CA8CB0 /* RouteTests.swift in Sources */,
+				E0BE500B23F81B4700CA8CB0 /* ServiceRouteTest.swift in Sources */,
 				E0BE4FFD23F80FF600CA8CB0 /* ReadJsonTest.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -363,6 +409,7 @@
 /* Begin XCBuildConfiguration section */
 		E0BE4FE523F8039000CA8CB0 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = E0BE4FFE23F8166E00CA8CB0 /* Build.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_ANALYZER_NONNULL = YES;
@@ -423,6 +470,7 @@
 		};
 		E0BE4FE623F8039000CA8CB0 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = E0BE4FFE23F8166E00CA8CB0 /* Build.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_ANALYZER_NONNULL = YES;
@@ -477,6 +525,7 @@
 		};
 		E0BE4FE823F8039000CA8CB0 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = E0BE4FFE23F8166E00CA8CB0 /* Build.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -487,7 +536,7 @@
 					"@executable_path/Frameworks",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.abilio.route;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = route;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -495,6 +544,7 @@
 		};
 		E0BE4FE923F8039000CA8CB0 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = E0BE4FFE23F8166E00CA8CB0 /* Build.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -505,7 +555,7 @@
 					"@executable_path/Frameworks",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.abilio.route;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = route;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -513,6 +563,7 @@
 		};
 		E0BE4FEB23F8039000CA8CB0 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = E0BE4FFE23F8166E00CA8CB0 /* Build.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -535,6 +586,7 @@
 		};
 		E0BE4FEC23F8039000CA8CB0 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = E0BE4FFE23F8166E00CA8CB0 /* Build.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -557,6 +609,7 @@
 		};
 		E0BE4FEE23F8039000CA8CB0 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = E0BE4FFE23F8166E00CA8CB0 /* Build.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
@@ -577,6 +630,7 @@
 		};
 		E0BE4FEF23F8039000CA8CB0 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = E0BE4FFE23F8166E00CA8CB0 /* Build.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;

@@ -1,0 +1,13 @@
+//
+//  Build.xcconfig
+//  route
+//
+//  Created by Abilio Gambim Parada on 15/02/2020.
+//  Copyright © 2020 Abilio Gambim Parada. All rights reserved.
+//
+
+// Configuration settings file format documentation can be found at:
+// https://help.apple.com/xcode/#/dev745c5c974
+
+BASE_URL = https:/$()/raw.githubusercontent.com/TuiMobilityHub/ios-code-challenge/master/connections.json
+
