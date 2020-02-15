@@ -9,5 +9,11 @@
 import Foundation
 
 struct Coordinate: Decodable {
-    
+    var from: LatLong
+    var to: LatLong
+}
+
+struct LatLong: Decodable {
+    var lat: Double
+    var long: Double
 }
