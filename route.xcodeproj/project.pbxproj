@@ -14,8 +14,9 @@
 		E0BE4FC823F8038D00CA8CB0 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E0BE4FC623F8038D00CA8CB0 /* Main.storyboard */; };
 		E0BE4FCA23F8039000CA8CB0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E0BE4FC923F8039000CA8CB0 /* Assets.xcassets */; };
 		E0BE4FCD23F8039000CA8CB0 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E0BE4FCB23F8039000CA8CB0 /* LaunchScreen.storyboard */; };
-		E0BE4FD823F8039000CA8CB0 /* routeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0BE4FD723F8039000CA8CB0 /* routeTests.swift */; };
-		E0BE4FE323F8039000CA8CB0 /* routeUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0BE4FE223F8039000CA8CB0 /* routeUITests.swift */; };
+		E0BE4FD823F8039000CA8CB0 /* RouteTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0BE4FD723F8039000CA8CB0 /* RouteTests.swift */; };
+		E0BE4FE323F8039000CA8CB0 /* RouteUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0BE4FE223F8039000CA8CB0 /* RouteUITests.swift */; };
+		E0BE4FF223F80A6600CA8CB0 /* connections.json in Resources */ = {isa = PBXBuildFile; fileRef = E0BE4FF123F80A6600CA8CB0 /* connections.json */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -46,11 +47,12 @@
 		E0BE4FCC23F8039000CA8CB0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		E0BE4FCE23F8039000CA8CB0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E0BE4FD323F8039000CA8CB0 /* routeTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = routeTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		E0BE4FD723F8039000CA8CB0 /* routeTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = routeTests.swift; sourceTree = "<group>"; };
+		E0BE4FD723F8039000CA8CB0 /* RouteTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RouteTests.swift; sourceTree = "<group>"; };
 		E0BE4FD923F8039000CA8CB0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E0BE4FDE23F8039000CA8CB0 /* routeUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = routeUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		E0BE4FE223F8039000CA8CB0 /* routeUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = routeUITests.swift; sourceTree = "<group>"; };
+		E0BE4FE223F8039000CA8CB0 /* RouteUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RouteUITests.swift; sourceTree = "<group>"; };
 		E0BE4FE423F8039000CA8CB0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		E0BE4FF123F80A6600CA8CB0 /* connections.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = connections.json; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -116,8 +118,9 @@
 		E0BE4FD623F8039000CA8CB0 /* routeTests */ = {
 			isa = PBXGroup;
 			children = (
-				E0BE4FD723F8039000CA8CB0 /* routeTests.swift */,
+				E0BE4FD723F8039000CA8CB0 /* RouteTests.swift */,
 				E0BE4FD923F8039000CA8CB0 /* Info.plist */,
+				E0BE4FF123F80A6600CA8CB0 /* connections.json */,
 			);
 			path = routeTests;
 			sourceTree = "<group>";
@@ -125,7 +128,7 @@
 		E0BE4FE123F8039000CA8CB0 /* routeUITests */ = {
 			isa = PBXGroup;
 			children = (
-				E0BE4FE223F8039000CA8CB0 /* routeUITests.swift */,
+				E0BE4FE223F8039000CA8CB0 /* RouteUITests.swift */,
 				E0BE4FE423F8039000CA8CB0 /* Info.plist */,
 			);
 			path = routeUITests;
@@ -141,6 +144,7 @@
 				E0BE4FB723F8038D00CA8CB0 /* Sources */,
 				E0BE4FB823F8038D00CA8CB0 /* Frameworks */,
 				E0BE4FB923F8038D00CA8CB0 /* Resources */,
+				E0BE4FF023F8090D00CA8CB0 /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -245,6 +249,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E0BE4FF223F80A6600CA8CB0 /* connections.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -256,6 +261,26 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		E0BE4FF023F8090D00CA8CB0 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "if which swiftlint >/dev/null; then\n  swiftlint\nelse\n  echo \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi\n";
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		E0BE4FB723F8038D00CA8CB0 /* Sources */ = {
@@ -273,7 +298,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E0BE4FD823F8039000CA8CB0 /* routeTests.swift in Sources */,
+				E0BE4FD823F8039000CA8CB0 /* RouteTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -281,7 +306,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E0BE4FE323F8039000CA8CB0 /* routeUITests.swift in Sources */,
+				E0BE4FE323F8039000CA8CB0 /* RouteUITests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
