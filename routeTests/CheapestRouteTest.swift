@@ -58,12 +58,47 @@ class CheapestRouteTest: XCTestCase {
 
         XCTAssertNotNil(nodeSet)
 
-        XCTAssertEqual(nodeSet.first { return $0.identifier == "New York"}?.destinations.count, 1)
-        XCTAssertEqual(nodeSet.first { return $0.identifier == "Sydney"}?.destinations.count, 1)
-        XCTAssertEqual(nodeSet.first { return $0.identifier == "Los Angeles"}?.destinations.count, 1)
-        XCTAssertEqual(nodeSet.first { return $0.identifier == "Porto"}?.destinations.count, 0)
-        XCTAssertEqual(nodeSet.first { return $0.identifier == "Tokyo"}?.destinations.count, 2)
-        XCTAssertEqual(nodeSet.first { return $0.identifier == "Cape Town"}?.destinations.count, 1)
-        XCTAssertEqual(nodeSet.first { return $0.identifier == "London"}?.destinations.count, 3)
+        XCTAssertEqual(nodeSet.first { return $0.description == "New York"}?.destinations.count, 1)
+        XCTAssertEqual(nodeSet.first { return $0.description == "Sydney"}?.destinations.count, 1)
+        XCTAssertEqual(nodeSet.first { return $0.description == "Los Angeles"}?.destinations.count, 1)
+        XCTAssertEqual(nodeSet.first { return $0.description == "Porto"}?.destinations.count, 0)
+        XCTAssertEqual(nodeSet.first { return $0.description == "Tokyo"}?.destinations.count, 2)
+        XCTAssertEqual(nodeSet.first { return $0.description == "Cape Town"}?.destinations.count, 1)
+        XCTAssertEqual(nodeSet.first { return $0.description == "London"}?.destinations.count, 3)
+    }
+
+    func testShoudlGetSameIdentifierForSameLatLong() {
+        let conNewYork = listConnection.connections.first { return $0.from == "New York"}!
+
+        let newConNovaYork = Connection(from: "Nova York",
+                                        to: conNewYork.to,
+                                        coordinates: conNewYork.coordinates,
+                                        price: conNewYork.price)
+        let newConNovaYorkEUA = Connection(from: "Nova York - EUA",
+                                        to: conNewYork.to,
+                                        coordinates: conNewYork.coordinates,
+                                        price: conNewYork.price)
+
+        let newConNovaYorkUSA = Connection(from: "New York - USA",
+                                        to: conNewYork.to,
+                                        coordinates: conNewYork.coordinates,
+                                        price: conNewYork.price)
+
+        let newListConnections = ListConnection(connections: [conNewYork,
+                                                              newConNovaYork,
+                                                              newConNovaYorkEUA,
+                                                              newConNovaYorkUSA])
+
+        let nodeSet = CheapestRouteCalculator().createNodes(from: newListConnections)
+
+        // There are 2 nodes, New York and its destination Los Angeles
+        XCTAssertEqual(nodeSet.count, 2)
+
+        XCTAssertNotNil(nodeSet.first { return $0.description == "New York"})
+        XCTAssertNotNil(nodeSet.first { return $0.description == "Los Angeles"})
+
+        XCTAssertNil(nodeSet.first { return $0.description == "Nova York"})
+        XCTAssertNil(nodeSet.first { return $0.description == "Nova York - EUA"})
+        XCTAssertNil(nodeSet.first { return $0.description == "New York - USA"})
     }
 }

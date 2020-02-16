@@ -10,12 +10,14 @@ import Foundation
 
 class Node {
     var identifier: String
-    var destinations: [(Node, Int)] = []
-    var priceFromStart: Int = Int.max
-    var nodesFromStart: [Node] = []
-    
-    init(identifier: String) {
+    var description: String
+    lazy var destinations: [(Node, Int)] = []
+    lazy var priceFromStart: Int = Int.max
+    lazy var nodesFromStart: [Node] = []
+
+    init(identifier: String, description: String) {
         self.identifier = identifier
+        self.description = description
     }
 }
 

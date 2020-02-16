@@ -15,11 +15,16 @@ struct Connection: Decodable {
     var price: Int
 }
 
-extension Connection: Equatable{
-    static func == (lhs: Connection, rhs: Connection) -> Bool {
-        let sameFrom = lhs.from.lowercased() == rhs.from.lowercased()
-        let sameTo = lhs.to.lowercased() == rhs.to.lowercased()
-        let samePrice = lhs.price == rhs.price
-        return sameFrom && sameTo && samePrice
+extension Connection {
+    var identifierFrom: String {
+        let lat = coordinates.from.lat
+        let long = coordinates.from.long
+        return "Lat\(lat):Long\(long)"
+    }
+
+    var identifierTo: String {
+        let lat = coordinates.to.lat
+        let long = coordinates.to.long
+        return "Lat\(lat):Long\(long)"
     }
 }

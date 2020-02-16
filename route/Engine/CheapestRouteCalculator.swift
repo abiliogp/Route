@@ -28,8 +28,8 @@ extension CheapestRouteCalculator: CheapestRouteCalculatorProtocol {
     func createNodes(from: ListConnection) -> Set<Node> {
         var nodeSet = Set<Node>()
         from.connections.forEach { (connection) in
-            nodeSet.insert(Node(identifier: connection.from))
-            nodeSet.insert(Node(identifier: connection.to))
+            nodeSet.insert(Node(identifier: connection.identifierFrom, description: connection.from))
+            nodeSet.insert(Node(identifier: connection.identifierTo, description: connection.to))
         }
         return nodeSet
     }
@@ -37,13 +37,13 @@ extension CheapestRouteCalculator: CheapestRouteCalculatorProtocol {
     func createConnections(from: ListConnection, nodes: Set<Node>) {
         from.connections.forEach { (connection) in
             var currentNode = nodes.first { (node) -> Bool in
-                return node.identifier == connection.from
+                return node.identifier == connection.identifierFrom
             }
             nodes.filter { (node) -> Bool in
-                if node.identifier == connection.to{
+                if node.identifier == connection.identifierTo{
                     currentNode?.addNeighbors(node: node, price: connection.price)
                 }
-                return node.identifier == connection.to
+                return node.identifier == connection.identifierTo
             }
             
         }
@@ -55,10 +55,7 @@ extension CheapestRouteCalculator: CheapestRouteCalculatorProtocol {
                    fromCity: Connection,
                    toCity: Connection) -> [Connection] {
 
-        if fromCity == toCity {
-            return [fromCity]
-        }
-
+        
         return [fromCity]
     }
 
