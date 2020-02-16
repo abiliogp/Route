@@ -11,9 +11,11 @@ import Foundation
 class Node {
     var identifier: String
     var description: String
+    var visited: Bool = false
+
     lazy var destinations: [(Node, Int)] = []
     lazy var priceFromStart: Int = Int.max
-    lazy var nodesFromStart: [Node] = []
+    var nodeFromStart: Node?
 
     init(identifier: String, description: String) {
         self.identifier = identifier
@@ -25,6 +27,13 @@ extension Node {
     func addNeighbors(node: Node, price: Int) {
         destinations.append((node, price))
     }
+
+    func reset() {
+        visited = false
+        priceFromStart = Int.max
+        nodeFromStart = nil
+    }
+
 }
 
 extension Node: Hashable {

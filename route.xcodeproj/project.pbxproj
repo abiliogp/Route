@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		E00B6CA423F9984D005032AA /* NodeConnectionTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = E00B6CA323F9984D005032AA /* NodeConnectionTest.swift */; };
 		E0BE4FBF23F8038D00CA8CB0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0BE4FBE23F8038D00CA8CB0 /* AppDelegate.swift */; };
 		E0BE4FC123F8038D00CA8CB0 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0BE4FC023F8038D00CA8CB0 /* SceneDelegate.swift */; };
 		E0BE4FC823F8038D00CA8CB0 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E0BE4FC623F8038D00CA8CB0 /* Main.storyboard */; };
@@ -48,6 +49,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		E00B6CA323F9984D005032AA /* NodeConnectionTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NodeConnectionTest.swift; sourceTree = "<group>"; };
 		E0BE4FBB23F8038D00CA8CB0 /* route.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = route.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E0BE4FBE23F8038D00CA8CB0 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E0BE4FC023F8038D00CA8CB0 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -151,6 +153,7 @@
 			isa = PBXGroup;
 			children = (
 				E0BE500E23F824CB00CA8CB0 /* CheapestRouteTest.swift */,
+				E00B6CA323F9984D005032AA /* NodeConnectionTest.swift */,
 				E0BE4FFC23F80FF600CA8CB0 /* ReadJsonTest.swift */,
 				E0BE4FD723F8039000CA8CB0 /* RouteTests.swift */,
 				E0BE500A23F81B4700CA8CB0 /* ServiceRouteTest.swift */,
@@ -383,6 +386,7 @@
 				E0BE4FD823F8039000CA8CB0 /* RouteTests.swift in Sources */,
 				E0BE500B23F81B4700CA8CB0 /* ServiceRouteTest.swift in Sources */,
 				E0BE4FFD23F80FF600CA8CB0 /* ReadJsonTest.swift in Sources */,
+				E00B6CA423F9984D005032AA /* NodeConnectionTest.swift in Sources */,
 				E0BE500F23F824CB00CA8CB0 /* CheapestRouteTest.swift in Sources */,
 				E0BE500D23F8239B00CA8CB0 /* ReadJson.swift in Sources */,
 			);
