@@ -27,6 +27,7 @@
 		E0BE500D23F8239B00CA8CB0 /* ReadJson.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0BE500C23F8239B00CA8CB0 /* ReadJson.swift */; };
 		E0BE500F23F824CB00CA8CB0 /* CheapestRouteTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0BE500E23F824CB00CA8CB0 /* CheapestRouteTest.swift */; };
 		E0BE501123F86FA500CA8CB0 /* CheapestRouteCalculator.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0BE501023F86FA500CA8CB0 /* CheapestRouteCalculator.swift */; };
+		E0BE501323F8871600CA8CB0 /* Node.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0BE501223F8871600CA8CB0 /* Node.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -74,6 +75,7 @@
 		E0BE500C23F8239B00CA8CB0 /* ReadJson.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReadJson.swift; sourceTree = "<group>"; };
 		E0BE500E23F824CB00CA8CB0 /* CheapestRouteTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheapestRouteTest.swift; sourceTree = "<group>"; };
 		E0BE501023F86FA500CA8CB0 /* CheapestRouteCalculator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheapestRouteCalculator.swift; sourceTree = "<group>"; };
+		E0BE501223F8871600CA8CB0 /* Node.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Node.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -194,6 +196,7 @@
 				E0BE500523F8185700CA8CB0 /* Service.swift */,
 				E0BE500823F818CA00CA8CB0 /* ServiceError.swift */,
 				E0BE501023F86FA500CA8CB0 /* CheapestRouteCalculator.swift */,
+				E0BE501223F8871600CA8CB0 /* Node.swift */,
 			);
 			path = Service;
 			sourceTree = "<group>";
@@ -354,6 +357,7 @@
 				E0BE4FF923F80BF700CA8CB0 /* Coordinate.swift in Sources */,
 				E0BE500623F8185700CA8CB0 /* Service.swift in Sources */,
 				E0BE500023F816F800CA8CB0 /* Environment.swift in Sources */,
+				E0BE501323F8871600CA8CB0 /* Node.swift in Sources */,
 				E0BE4FBF23F8038D00CA8CB0 /* AppDelegate.swift in Sources */,
 				E0BE4FF723F80BBE00CA8CB0 /* Connection.swift in Sources */,
 				E0BE500223F8171600CA8CB0 /* Keys.swift in Sources */,

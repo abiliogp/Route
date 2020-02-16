@@ -10,7 +10,7 @@ import XCTest
 @testable import route
 
 class CheapestRouteTest: XCTestCase {
-    
+
     var listConnection: ListConnection!
 
     override func setUp() {
@@ -21,7 +21,7 @@ class CheapestRouteTest: XCTestCase {
         } catch { }
     }
 
-    func testShouldReturnSameWhenFromEqualsToRoute(){
+    func testShouldReturnSameWhenFromEqualsToRoute() {
         let fromCity = listConnection.connections.first!
         let toCity = fromCity
 
@@ -42,5 +42,28 @@ class CheapestRouteTest: XCTestCase {
                                                         toCity: toCity)
 
         XCTAssertNotNil(route)
+    }
+
+    func testShouldCreateNodeSet() {
+        let nodeSet = CheapestRouteCalculator().createNodes(from: listConnection)
+
+        XCTAssertNotNil(nodeSet)
+        XCTAssertEqual(nodeSet.count, 7)
+    }
+
+    func testShouldCreateNodeConnections() {
+        let nodeSet = CheapestRouteCalculator().createNodes(from: listConnection)
+
+        CheapestRouteCalculator().createConnections(from: listConnection, nodes: nodeSet)
+
+        XCTAssertNotNil(nodeSet)
+
+        XCTAssertEqual(nodeSet.first { return $0.identifier == "New York"}?.destinations.count, 1)
+        XCTAssertEqual(nodeSet.first { return $0.identifier == "Sydney"}?.destinations.count, 1)
+        XCTAssertEqual(nodeSet.first { return $0.identifier == "Los Angeles"}?.destinations.count, 1)
+        XCTAssertEqual(nodeSet.first { return $0.identifier == "Porto"}?.destinations.count, 0)
+        XCTAssertEqual(nodeSet.first { return $0.identifier == "Tokyo"}?.destinations.count, 2)
+        XCTAssertEqual(nodeSet.first { return $0.identifier == "Cape Town"}?.destinations.count, 1)
+        XCTAssertEqual(nodeSet.first { return $0.identifier == "London"}?.destinations.count, 3)
     }
 }
