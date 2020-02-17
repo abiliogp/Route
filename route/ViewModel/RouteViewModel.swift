@@ -14,10 +14,17 @@ class RouteViewModel {
 
     var onServiceError: ((ServiceError) -> Void)?
 
-    var service: ServiceRouteProtocol
+    var onAllNodes: ((Set<Node>) -> Void)?
 
-    init(service: ServiceRouteProtocol = Service.shared) {
+    var onFromNodes: ((Set<Node>) -> Void)?
+
+    private var service: ServiceRouteProtocol
+    private var routeCalculator: CheapestRouteCalculator
+
+    init(service: ServiceRouteProtocol = Service.shared,
+         routeCalculator: CheapestRouteCalculator = CheapestRouteCalculator.shared) {
         self.service = service
+        self.routeCalculator = routeCalculator
     }
 
     func setupController() {
@@ -28,9 +35,13 @@ class RouteViewModel {
             }
             switch result {
             case .success(let listConnection):
+                self.routeCalculator.setupNodes(from: listConnection)
+                self.onAllNodes?(self.routeCalculator.nodes)
+                self.onFromNodes?(self.routeCalculator.fromNodes)
                 self.onLoading?(false)
             case .failure(let error):
                 self.onServiceError?(error)
+                self.onLoading?(false)
             }
         }
     }

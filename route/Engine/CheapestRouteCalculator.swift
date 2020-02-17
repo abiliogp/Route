@@ -10,6 +10,8 @@ import Foundation
 
 protocol CheapestRouteCalculatorProtocol {
 
+    func setupNodes(from: ListConnection)
+
     func createNodes(from: ListConnection) -> Set<Node>
 
     func createConnections(from: ListConnection, nodes: Set<Node>)
@@ -19,11 +21,28 @@ protocol CheapestRouteCalculatorProtocol {
                         nodes: Set<Node>) -> Node
 }
 
-struct CheapestRouteCalculator {
+class CheapestRouteCalculator {
 
+    static let shared = CheapestRouteCalculator()
+
+    lazy var nodes = Set<Node>()
+
+    var fromNodes: Set<Node> {
+        return nodes.filter { (node) -> Bool in
+            return node.destinations.isEmpty == false
+        }
+    }
+
+    private init() {
+    }
 }
 
 extension CheapestRouteCalculator: CheapestRouteCalculatorProtocol {
+
+    func setupNodes(from: ListConnection) {
+        self.nodes = createNodes(from: from)
+        createConnections(from: from, nodes: nodes)
+    }
 
     func createNodes(from: ListConnection) -> Set<Node> {
         var nodeSet = Set<Node>()

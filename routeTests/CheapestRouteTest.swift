@@ -20,9 +20,9 @@ class CheapestRouteTest: XCTestCase {
                                                                   ofType: ".json",
                                                                   typeClass: ListConnection.self)
 
-            self.nodeSet = CheapestRouteCalculator().createNodes(from: listConnection)
+            self.nodeSet = CheapestRouteCalculator.shared.createNodes(from: listConnection)
 
-            CheapestRouteCalculator().createConnections(from: listConnection, nodes: nodeSet)
+            CheapestRouteCalculator.shared.createConnections(from: listConnection, nodes: nodeSet)
         } catch { }
     }
 
@@ -30,7 +30,7 @@ class CheapestRouteTest: XCTestCase {
 
         let nodeFrom = nodeSet.first { return $0.description ==  "New York" }!
 
-        let destination = CheapestRouteCalculator().calculateRoute(from: nodeFrom,
+        let destination = CheapestRouteCalculator.shared.calculateRoute(from: nodeFrom,
                                                                    destination: nodeFrom,
                                                                    nodes: nodeSet)
 
@@ -42,7 +42,7 @@ class CheapestRouteTest: XCTestCase {
         let nodeFrom = nodeSet.first { return $0.description == "New York" }!
         let nodeTo = nodeSet.first { return $0.description == "Sydney" }!
 
-        let destination = CheapestRouteCalculator().calculateRoute(from: nodeFrom,
+        let destination = CheapestRouteCalculator.shared.calculateRoute(from: nodeFrom,
                                                                    destination: nodeTo,
                                                                    nodes: nodeSet)
 
@@ -59,7 +59,7 @@ class CheapestRouteTest: XCTestCase {
         let nodeFrom = nodeSet.first { return $0.description == "London" }!
         let nodeTo = nodeSet.first { return $0.description == "Cape Town" }!
 
-        let destination = CheapestRouteCalculator().calculateRoute(from: nodeFrom,
+        let destination = CheapestRouteCalculator.shared.calculateRoute(from: nodeFrom,
                                                                    destination: nodeTo,
                                                                    nodes: nodeSet)
 
@@ -76,7 +76,7 @@ class CheapestRouteTest: XCTestCase {
         let nodeFrom = nodeSet.first { return $0.description == "Porto"}!
         let nodeTo = nodeSet.first { return $0.description == "Cape Town" }!
 
-        let destination = CheapestRouteCalculator().calculateRoute(from: nodeFrom,
+        let destination = CheapestRouteCalculator.shared.calculateRoute(from: nodeFrom,
                                                                    destination: nodeTo,
                                                                    nodes: nodeSet)
 

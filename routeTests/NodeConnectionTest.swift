@@ -22,16 +22,16 @@ class NodeConnectionTest: XCTestCase {
     }
 
     func testShouldCreateNodeSet() {
-        let nodeSet = CheapestRouteCalculator().createNodes(from: listConnection)
+        let nodeSet = CheapestRouteCalculator.shared.createNodes(from: listConnection)
 
         XCTAssertNotNil(nodeSet)
         XCTAssertEqual(nodeSet.count, 7)
     }
 
     func testShouldCreateNodeConnections() {
-        let nodeSet = CheapestRouteCalculator().createNodes(from: listConnection)
+        let nodeSet = CheapestRouteCalculator.shared.createNodes(from: listConnection)
 
-        CheapestRouteCalculator().createConnections(from: listConnection, nodes: nodeSet)
+        CheapestRouteCalculator.shared.createConnections(from: listConnection, nodes: nodeSet)
 
         XCTAssertNotNil(nodeSet)
 
@@ -66,7 +66,7 @@ class NodeConnectionTest: XCTestCase {
                                                               newConNovaYorkEUA,
                                                               newConNovaYorkUSA])
 
-        let nodeSet = CheapestRouteCalculator().createNodes(from: newListConnections)
+        let nodeSet = CheapestRouteCalculator.shared.createNodes(from: newListConnections)
 
         // There are 2 nodes, New York and its destination Los Angeles
         XCTAssertEqual(nodeSet.count, 2)
@@ -79,4 +79,9 @@ class NodeConnectionTest: XCTestCase {
         XCTAssertNil(nodeSet.first { return $0.description == "New York - USA"})
     }
 
+    func testShouldReturnAllNodesFrom() {
+        CheapestRouteCalculator.shared.setupNodes(from: listConnection)
+
+        XCTAssertEqual(CheapestRouteCalculator.shared.fromNodes.count, 6)
+    }
 }
