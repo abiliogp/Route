@@ -18,7 +18,7 @@ class RouteViewModel {
 
     var onFromNodes: ((Set<Node>) -> Void)?
 
-    var onGetRoute: ((Node) -> Void)?
+    var onGetRoute: (([Trip]) -> Void)?
 
     var onEngineError: ((EngineError) -> Void)?
 
@@ -51,6 +51,7 @@ class RouteViewModel {
     }
 
     func findRoute(from: String, destination: String) {
+        self.onLoading?(true)
         self.routeCalculator
             .calculateRoute(from: from,
                             destination: destination) { [weak self] (result) in
@@ -61,10 +62,31 @@ class RouteViewModel {
 
             switch result {
             case .success(let node):
-                self.onGetRoute?(node)
+                var tripList = [Trip]()
+                tripList.append(Trip(description: node.description,
+                                     stage: .arrive,
+                                     price: node.priceFromStart))
+
+                var currentNode = node
+                while let lastNode = currentNode.nodeFromStart {
+                    currentNode = lastNode
+                    if lastNode.nodeFromStart == nil {
+                        tripList.append(Trip(description: lastNode.description,
+                                             stage: .departure,
+                                             price: lastNode.priceFromStart))
+                    } else {
+                        tripList.append(Trip(description: lastNode.description,
+                                             stage: .connection,
+                                             price: lastNode.priceFromStart))
+                    }
+                }
+                tripList.reverse()
+                self.onGetRoute?(tripList)
+                
             case .failure(let error):
                 self.onEngineError?(error)
             }
+            self.onLoading?(false)
         }
     }
 }

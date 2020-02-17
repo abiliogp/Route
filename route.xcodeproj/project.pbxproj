@@ -33,6 +33,8 @@
 		E0BE501123F86FA500CA8CB0 /* CheapestRouteCalculator.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0BE501023F86FA500CA8CB0 /* CheapestRouteCalculator.swift */; };
 		E0BE501323F8871600CA8CB0 /* Node.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0BE501223F8871600CA8CB0 /* Node.swift */; };
 		E0CCDB0823FB265800631CA1 /* EngineError.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0CCDB0723FB265800631CA1 /* EngineError.swift */; };
+		E0CCDB0A23FB3BD700631CA1 /* Trip.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0CCDB0923FB3BD700631CA1 /* Trip.swift */; };
+		E0CCDB0C23FB45B400631CA1 /* TripViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0CCDB0B23FB45B400631CA1 /* TripViewCell.swift */; };
 		E0FBE01C23FAE5250013D647 /* RouteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0FBE01B23FAE5250013D647 /* RouteViewController.swift */; };
 /* End PBXBuildFile section */
 
@@ -87,6 +89,8 @@
 		E0BE501023F86FA500CA8CB0 /* CheapestRouteCalculator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheapestRouteCalculator.swift; sourceTree = "<group>"; };
 		E0BE501223F8871600CA8CB0 /* Node.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Node.swift; sourceTree = "<group>"; };
 		E0CCDB0723FB265800631CA1 /* EngineError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EngineError.swift; sourceTree = "<group>"; };
+		E0CCDB0923FB3BD700631CA1 /* Trip.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Trip.swift; sourceTree = "<group>"; };
+		E0CCDB0B23FB45B400631CA1 /* TripViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TripViewCell.swift; sourceTree = "<group>"; };
 		E0FBE01B23FAE5250013D647 /* RouteViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RouteViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -137,6 +141,7 @@
 			isa = PBXGroup;
 			children = (
 				E0B8434C23FAB2B200757DE1 /* RouteViewModel.swift */,
+				E0CCDB0923FB3BD700631CA1 /* Trip.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -247,6 +252,7 @@
 			isa = PBXGroup;
 			children = (
 				E0FBE01B23FAE5250013D647 /* RouteViewController.swift */,
+				E0CCDB0B23FB45B400631CA1 /* TripViewCell.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -408,6 +414,7 @@
 				E0BE500623F8185700CA8CB0 /* Service.swift in Sources */,
 				E0BE500023F816F800CA8CB0 /* Environment.swift in Sources */,
 				E0BE501323F8871600CA8CB0 /* Node.swift in Sources */,
+				E0CCDB0A23FB3BD700631CA1 /* Trip.swift in Sources */,
 				E0BE4FBF23F8038D00CA8CB0 /* AppDelegate.swift in Sources */,
 				E0BE4FF723F80BBE00CA8CB0 /* Connection.swift in Sources */,
 				E0B8434D23FAB2B200757DE1 /* RouteViewModel.swift in Sources */,
@@ -416,6 +423,7 @@
 				E0BE500923F818CA00CA8CB0 /* ServiceError.swift in Sources */,
 				E0BE4FC123F8038D00CA8CB0 /* SceneDelegate.swift in Sources */,
 				E0BE501123F86FA500CA8CB0 /* CheapestRouteCalculator.swift in Sources */,
+				E0CCDB0C23FB45B400631CA1 /* TripViewCell.swift in Sources */,
 				E06FF25B23FAF91800654F09 /* UIViewController+Keyboard.swift in Sources */,
 				E0BE4FF423F80B9A00CA8CB0 /* ListConnection.swift in Sources */,
 				E0FBE01C23FAE5250013D647 /* RouteViewController.swift in Sources */,

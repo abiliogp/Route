@@ -169,7 +169,7 @@ extension CheapestRouteCalculator: CheapestRouteCalculatorProtocol {
             return
         }
 
-        DispatchQueue.global().async { [weak self] in
+        DispatchQueue.main.async { [weak self] in
             guard let self = self else {
                 completionHandler(.failure(.notReachable))
                 return

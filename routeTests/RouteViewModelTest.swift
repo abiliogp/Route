@@ -89,11 +89,11 @@ class RouteViewModelTest: XCTestCase {
         //GIVEN
         let expect = XCTestExpectation()
 
-        var node: Node?
+        var listTrip: [Trip]?
 
         //WHEN
         viewModel.onGetRoute = { (route) in
-            node = route
+            listTrip = route
             expect.fulfill()
         }
 
@@ -103,8 +103,11 @@ class RouteViewModelTest: XCTestCase {
         //THEN
         wait(for: [expect], timeout: 10.0)
 
-        XCTAssertEqual(node?.description, "New York")
-        XCTAssertEqual(node?.priceFromStart, 1400)
+        let lastTrip = listTrip?.last!
+
+        XCTAssertEqual(lastTrip?.description, "New York")
+        XCTAssertEqual(lastTrip?.price, 1400)
+        XCTAssertEqual(lastTrip?.stage, StageOptions.arrive)
     }
 
     func testShoudGetEngineErrorForEntries() {

@@ -15,11 +15,15 @@ class RouteViewController: UIViewController {
     @IBOutlet weak var finderView: UIView!
     @IBOutlet weak var fromTextField: UITextField!
     @IBOutlet weak var toTextField: UITextField!
-
+    @IBOutlet weak var tableView: UITableView!
+    
     private var viewModel: RouteViewModel?
 
     private lazy var fromSuggestions: [String] = []
     private lazy var allSuggestions: [String] = []
+    
+    private lazy var tripList = [Trip]()
+
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -28,6 +32,15 @@ class RouteViewController: UIViewController {
         setupMVVM()
     }
 
+    @IBAction func pressGoButton(){
+        if let from = fromTextField.text, let destination = toTextField.text{
+            viewModel?.findRoute(from: from, destination: destination)
+        }
+    }
+    
+}
+
+extension RouteViewController{
     func setupView() {
         NotificationCenter.default.addObserver(self,
                                                selector: #selector(keyboardWillShow),
@@ -43,10 +56,11 @@ class RouteViewController: UIViewController {
         fromTextField.autocorrectionType = .no
         toTextField.autocorrectionType = .no
 
-        //TODO: replace
+        // TODO: Insert on localizable
         fromTextField.placeholder = "Origem"
         toTextField.placeholder = "Destino"
 
+        tableView.dataSource = self
 
     }
 
@@ -88,6 +102,16 @@ class RouteViewController: UIViewController {
             }
             debugPrint(fromNodes.count)
         }
+        
+        viewModel?.onGetRoute = { [weak self] (route) in
+            guard let self = self else { return }
+            route.forEach { (trip) in
+                debugPrint(trip.description)
+            }
+            self.tripList.removeAll()
+            self.tripList.append(contentsOf: route)
+            self.tableView.reloadData()
+        }
     }
 }
 
@@ -96,7 +120,7 @@ extension RouteViewController: UITextFieldDelegate {
     func textField(_ textField: UITextField,
                    shouldChangeCharactersIn range: NSRange,
                    replacementString string: String) -> Bool {
-        
+
         return !autoCompleteText(in: textField, using: string, suggestions: allSuggestions)
     }
 
@@ -126,4 +150,23 @@ extension RouteViewController: UITextFieldDelegate {
         }
         return false
     }
+}
+
+extension RouteViewController: UITableViewDataSource {
+
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return tripList.count
+    }
+
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+
+        if let cell = tableView.dequeueReusableCell(withIdentifier: "TRIP_CELL") as? TripViewCell {
+
+            cell.setupView(trip: tripList[indexPath.row])
+            return cell
+        }
+
+        return UITableViewCell()
+    }
+
 }
