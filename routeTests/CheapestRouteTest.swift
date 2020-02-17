@@ -85,6 +85,151 @@ class CheapestRouteTest: XCTestCase {
         XCTAssertEqual(destination, nodeFrom)
         XCTAssert(destination.destinations.isEmpty)
     }
+
+    func testShouldFailureWhenEmptyNodeList() {
+        let expect = XCTestExpectation()
+
+        CheapestRouteCalculator.shared.nodes.removeAll()
+        
+        CheapestRouteCalculator.shared.calculateRoute(from: "Sydney", destination: "Porto") { (result) in
+            switch result{
+            case .success(let node):
+                XCTAssertFalse(true)
+            case .failure(let engineError):
+                XCTAssertEqual(engineError, EngineError.emptyNodeList)
+            }
+            expect.fulfill()
+        }
+
+        wait(for: [expect], timeout: 5.0)
+    }
+
+    func testShouldFailureWhenNotValidFrom() {
+        let expect = XCTestExpectation()
+
+        CheapestRouteCalculator.shared.setupNodes(from: listConnection)
+
+        CheapestRouteCalculator.shared.calculateRoute(from: "", destination: "Porto") { (result) in
+            switch result {
+            case .success(let node):
+                XCTAssertFalse(true)
+            case .failure(let engineError):
+                XCTAssertEqual(engineError, EngineError.notValidFrom)
+            }
+            expect.fulfill()
+        }
+
+        wait(for: [expect], timeout: 5.0)
+    }
+
+    func testShouldFailureWhenNotValidFromInNode() {
+        let expect = XCTestExpectation()
+
+        CheapestRouteCalculator.shared.setupNodes(from: listConnection)
+
+        CheapestRouteCalculator.shared.calculateRoute(from: "Sao Paulo", destination: "Lisboa") { (result) in
+            switch result {
+            case .success(let node):
+                XCTAssertFalse(true)
+            case .failure(let engineError):
+                XCTAssertEqual(engineError, EngineError.notValidFrom)
+            }
+            expect.fulfill()
+        }
+
+        wait(for: [expect], timeout: 5.0)
+    }
+
+    func testShouldFailureWhenNotValidToInNode() {
+        let expect = XCTestExpectation()
+
+        CheapestRouteCalculator.shared.setupNodes(from: listConnection)
+
+        CheapestRouteCalculator.shared.calculateRoute(from: "Porto", destination: "Lisboa") { (result) in
+            switch result {
+            case .success(let node):
+                XCTAssertFalse(true)
+            case .failure(let engineError):
+                XCTAssertEqual(engineError, EngineError.notValidTo)
+            }
+            expect.fulfill()
+        }
+
+        wait(for: [expect], timeout: 5.0)
+    }
+
+    func testShouldFailureWhenNotValidTo() {
+        let expect = XCTestExpectation()
+
+        CheapestRouteCalculator.shared.setupNodes(from: listConnection)
+
+        CheapestRouteCalculator.shared.calculateRoute(from: "Porto", destination: "") { (result) in
+            switch result {
+            case .success(let node):
+                XCTAssertFalse(true)
+            case .failure(let engineError):
+                XCTAssertEqual(engineError, EngineError.notValidTo)
+            }
+            expect.fulfill()
+        }
+
+        wait(for: [expect], timeout: 5.0)
+    }
+
+    func testShouldFailureWhenSameFromAndTo() {
+        let expect = XCTestExpectation()
+
+        CheapestRouteCalculator.shared.setupNodes(from: listConnection)
+
+        CheapestRouteCalculator.shared.calculateRoute(from: "Porto", destination: "Porto") { (result) in
+            switch result {
+            case .success(let node):
+                XCTAssertFalse(true)
+            case .failure(let engineError):
+                XCTAssertEqual(engineError, EngineError.sameFromAndTo)
+            }
+            expect.fulfill()
+        }
+
+        wait(for: [expect], timeout: 5.0)
+    }
+
+    func testShouldFailureWhenNotReachable() {
+        let expect = XCTestExpectation()
+
+        CheapestRouteCalculator.shared.setupNodes(from: listConnection)
+
+        CheapestRouteCalculator.shared.calculateRoute(from: "Porto", destination: "Tokyo") { (result) in
+            switch result {
+            case .success(let node):
+                XCTAssertFalse(true)
+            case .failure(let engineError):
+                XCTAssertEqual(engineError, EngineError.notReachable)
+            }
+            expect.fulfill()
+        }
+
+        wait(for: [expect], timeout: 5.0)
+    }
+
+    func testShouldSuccessWhenValidFromAndTo() {
+        let expect = XCTestExpectation()
+
+        CheapestRouteCalculator.shared.setupNodes(from: listConnection)
+
+        CheapestRouteCalculator.shared.calculateRoute(from: "Tokyo", destination: "Porto") { (result) in
+            switch result {
+            case .success(let node):
+                XCTAssertNotNil(node)
+                XCTAssertEqual(node.description, "Porto")
+            case .failure(let engineError):
+                XCTAssertFalse(true)
+            }
+            expect.fulfill()
+        }
+
+        wait(for: [expect], timeout: 5.0)
+    }
 }
 
 extension CheapestRouteTest {

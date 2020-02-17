@@ -19,6 +19,10 @@ protocol CheapestRouteCalculatorProtocol {
     func calculateRoute(from: Node,
                         destination: Node,
                         nodes: Set<Node>) -> Node
+
+    func calculateRoute(from: String,
+                        destination: String,
+                        completionHandler: @escaping (Result<Node, EngineError>) -> Void)
 }
 
 class CheapestRouteCalculator {
@@ -121,4 +125,61 @@ extension CheapestRouteCalculator: CheapestRouteCalculatorProtocol {
         return from
     }
 
+
+    func calculateRoute(from: String,
+                        destination: String,
+                        completionHandler: @escaping (Result<Node, EngineError>) -> Void) {
+
+        if nodes.isEmpty {
+            completionHandler(.failure(.emptyNodeList))
+            return
+        }
+
+        if from.isEmpty {
+            completionHandler(.failure(.notValidFrom))
+            return
+        }
+
+        if destination.isEmpty {
+            completionHandler(.failure(.notValidTo))
+            return
+        }
+
+        if from == destination {
+            completionHandler(.failure(.sameFromAndTo))
+            return
+        }
+
+        guard let nodeFrom = nodes.first(where: { (node) -> Bool in
+            return node.description == from
+        }) else {
+            completionHandler(.failure(.notValidFrom))
+            return
+        }
+
+        guard let nodeTo = nodes.first(where: { (node) -> Bool in
+            return node.description == destination
+        }) else {
+            completionHandler(.failure(.notValidTo))
+            return
+        }
+
+        if nodeFrom == nodeTo {
+            completionHandler(.failure(.sameFromAndTo))
+            return
+        }
+
+        DispatchQueue.global().async { [weak self] in
+            guard let self = self else {
+                completionHandler(.failure(.notReachable))
+                return
+            }
+            let destinationNode = self.calculateRoute(from: nodeFrom, destination: nodeTo, nodes: self.nodes)
+            if destinationNode == nodeFrom {
+                completionHandler(.failure(.notReachable))
+            } else {
+                completionHandler(.success(destinationNode))
+            }
+        }
+    }
 }

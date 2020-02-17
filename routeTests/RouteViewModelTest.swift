@@ -84,4 +84,47 @@ class RouteViewModelTest: XCTestCase {
         // All nodes less Porto, that does not have destination list
         XCTAssertEqual(nodes.count, 6)
     }
+
+    func testShoudFindRouteForEntries() {
+        //GIVEN
+        let expect = XCTestExpectation()
+
+        var node: Node?
+
+        //WHEN
+        viewModel.onGetRoute = { (route) in
+            node = route
+            expect.fulfill()
+        }
+
+        viewModel.setupController()
+        viewModel.findRoute(from: "Sydney", destination: "New York")
+
+        //THEN
+        wait(for: [expect], timeout: 10.0)
+
+        XCTAssertEqual(node?.description, "New York")
+        XCTAssertEqual(node?.priceFromStart, 1400)
+    }
+
+    func testShoudGetEngineErrorForEntries() {
+        //GIVEN
+        let expect = XCTestExpectation()
+
+        var engineError: EngineError?
+
+        //WHEN
+        viewModel.onEngineError = { (error) in
+            engineError = error
+            expect.fulfill()
+        }
+
+        viewModel.setupController()
+        viewModel.findRoute(from: "", destination: "New York")
+
+        //THEN
+        wait(for: [expect], timeout: 10.0)
+
+        XCTAssertEqual(engineError, EngineError.notValidFrom)
+    }
 }

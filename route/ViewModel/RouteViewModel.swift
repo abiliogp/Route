@@ -18,6 +18,10 @@ class RouteViewModel {
 
     var onFromNodes: ((Set<Node>) -> Void)?
 
+    var onGetRoute: ((Node) -> Void)?
+
+    var onEngineError: ((EngineError) -> Void)?
+
     private var service: ServiceRouteProtocol
     private var routeCalculator: CheapestRouteCalculator
 
@@ -42,6 +46,24 @@ class RouteViewModel {
             case .failure(let error):
                 self.onServiceError?(error)
                 self.onLoading?(false)
+            }
+        }
+    }
+
+    func findRoute(from: String, destination: String) {
+        self.routeCalculator
+            .calculateRoute(from: from,
+                            destination: destination) { [weak self] (result) in
+
+            guard let self = self else {
+                return
+            }
+
+            switch result {
+            case .success(let node):
+                self.onGetRoute?(node)
+            case .failure(let error):
+                self.onEngineError?(error)
             }
         }
     }

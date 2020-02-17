@@ -32,6 +32,7 @@
 		E0BE500F23F824CB00CA8CB0 /* CheapestRouteTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0BE500E23F824CB00CA8CB0 /* CheapestRouteTest.swift */; };
 		E0BE501123F86FA500CA8CB0 /* CheapestRouteCalculator.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0BE501023F86FA500CA8CB0 /* CheapestRouteCalculator.swift */; };
 		E0BE501323F8871600CA8CB0 /* Node.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0BE501223F8871600CA8CB0 /* Node.swift */; };
+		E0CCDB0823FB265800631CA1 /* EngineError.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0CCDB0723FB265800631CA1 /* EngineError.swift */; };
 		E0FBE01C23FAE5250013D647 /* RouteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0FBE01B23FAE5250013D647 /* RouteViewController.swift */; };
 /* End PBXBuildFile section */
 
@@ -85,6 +86,7 @@
 		E0BE500E23F824CB00CA8CB0 /* CheapestRouteTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheapestRouteTest.swift; sourceTree = "<group>"; };
 		E0BE501023F86FA500CA8CB0 /* CheapestRouteCalculator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheapestRouteCalculator.swift; sourceTree = "<group>"; };
 		E0BE501223F8871600CA8CB0 /* Node.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Node.swift; sourceTree = "<group>"; };
+		E0CCDB0723FB265800631CA1 /* EngineError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EngineError.swift; sourceTree = "<group>"; };
 		E0FBE01B23FAE5250013D647 /* RouteViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RouteViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -118,6 +120,7 @@
 			children = (
 				E0BE501023F86FA500CA8CB0 /* CheapestRouteCalculator.swift */,
 				E0BE501223F8871600CA8CB0 /* Node.swift */,
+				E0CCDB0723FB265800631CA1 /* EngineError.swift */,
 			);
 			path = Engine;
 			sourceTree = "<group>";
@@ -408,6 +411,7 @@
 				E0BE4FBF23F8038D00CA8CB0 /* AppDelegate.swift in Sources */,
 				E0BE4FF723F80BBE00CA8CB0 /* Connection.swift in Sources */,
 				E0B8434D23FAB2B200757DE1 /* RouteViewModel.swift in Sources */,
+				E0CCDB0823FB265800631CA1 /* EngineError.swift in Sources */,
 				E0BE500223F8171600CA8CB0 /* Keys.swift in Sources */,
 				E0BE500923F818CA00CA8CB0 /* ServiceError.swift in Sources */,
 				E0BE4FC123F8038D00CA8CB0 /* SceneDelegate.swift in Sources */,

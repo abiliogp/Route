@@ -21,7 +21,6 @@ class RouteViewController: UIViewController {
     private lazy var fromSuggestions: [String] = []
     private lazy var allSuggestions: [String] = []
 
-
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -44,6 +43,7 @@ class RouteViewController: UIViewController {
         fromTextField.autocorrectionType = .no
         toTextField.autocorrectionType = .no
 
+        //TODO: replace
         fromTextField.placeholder = "Origem"
         toTextField.placeholder = "Destino"
 
@@ -93,7 +93,10 @@ class RouteViewController: UIViewController {
 
 extension RouteViewController: UITextFieldDelegate {
 
-    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+    func textField(_ textField: UITextField,
+                   shouldChangeCharactersIn range: NSRange,
+                   replacementString string: String) -> Bool {
+        
         return !autoCompleteText(in: textField, using: string, suggestions: allSuggestions)
     }
 
@@ -113,7 +116,7 @@ extension RouteViewController: UITextFieldDelegate {
             let matches = suggestions.filter {
                 $0.hasPrefix(prefix)
             }
-            if (matches.count > 0) {
+            if matches.count > 0 {
                 textField.text = matches[0]
                 if let start = textField.position(from: textField.beginningOfDocument, offset: prefix.count) {
                     textField.selectedTextRange = textField.textRange(from: start, to: textField.endOfDocument)
