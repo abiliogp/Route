@@ -8,7 +8,7 @@
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
             uuid = "7873392F-298C-4EC2-AE33-606213E92C2D"
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "routeTests/ReadJsonTest.swift"
@@ -17,22 +17,6 @@
             startingLineNumber = "22"
             endingLineNumber = "22"
             landmarkName = "testShouldReadConnectionsList()"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "9C20500F-1786-4EB2-A43E-FD2F29D5B3EA"
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "route/Engine/CheapestRouteCalculator.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "37"
-            endingLineNumber = "37"
-            landmarkName = "createNodes(from:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

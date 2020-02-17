@@ -9,11 +9,7 @@
 import Foundation
 
 protocol CheapestRouteCalculatorProtocol {
-    
-    func calculate(connections: ListConnection,
-                   fromCity: Connection,
-                   toCity: Connection) -> [Connection]
-    
+
     func createNodes(from: ListConnection) -> Set<Node>
 
     func createConnections(from: ListConnection, nodes: Set<Node>)
@@ -52,14 +48,6 @@ extension CheapestRouteCalculator: CheapestRouteCalculatorProtocol {
         }
     }
 
-    func calculate(connections: ListConnection,
-                   fromCity: Connection,
-                   toCity: Connection) -> [Connection] {
-
-
-        return [fromCity]
-    }
-
     func calculateRoute(from: Node, destination: Node, nodes: Set<Node>) -> Node {
 
         if from.identifier == destination.identifier {
@@ -70,7 +58,9 @@ extension CheapestRouteCalculator: CheapestRouteCalculatorProtocol {
             return from
         }
 
-        nodes.forEach{ $0.reset() }
+        nodes.forEach { (node) in
+            node.reset()
+        }
 
         from.priceFromStart = 0
 
@@ -78,9 +68,11 @@ extension CheapestRouteCalculator: CheapestRouteCalculatorProtocol {
 
         while !toBeVisited.isEmpty {
 
-            let currentNode = toBeVisited.first { (node) -> Bool in
+            guard let currentNode = toBeVisited.first(where: { (node) -> Bool in
                 return node.visited == false
-            }!
+            }) else {
+                return from
+            }
 
             if currentNode.identifier == destination.identifier {
                 debugPrint("destination: \(currentNode.description)")
