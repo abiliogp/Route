@@ -6,12 +6,28 @@
 //  Copyright © 2020 Abilio Gambim Parada. All rights reserved.
 //
 
-import Foundation
+import UIKit
 
 public struct ViewValues {
     struct Tag {
         static let textFieldFrom = 0
         static let textFieldTo = 1
+    }
+
+    struct Images {
+        static let arrive = "arrive"
+        static let connection = "connection"
+        static let departure = "departure"
+    }
+    
+    struct Table {
+        static let heightForRowTrip: CGFloat = 100
+    }
+
+
+    struct TripViewCell {
+        static let nibName = "TripCell"
+        static let cellIdentifier =  "TRIP_CELL"
     }
 
 }

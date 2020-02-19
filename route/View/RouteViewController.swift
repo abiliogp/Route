@@ -16,6 +16,7 @@ class RouteViewController: UIViewController {
     @IBOutlet weak var fromTextField: UITextField!
     @IBOutlet weak var toTextField: UITextField!
     @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var statusDescription: UILabel!
 
     private var viewModel: RouteViewModel?
 
@@ -33,14 +34,14 @@ class RouteViewController: UIViewController {
     }
 
     @IBAction func pressGoButton() {
-        if let from = fromTextField.text, let destination = toTextField.text{
+        if let from = fromTextField.text, let destination = toTextField.text {
             viewModel?.findRoute(from: from, destination: destination)
         }
     }
 
 }
 
-extension RouteViewController{
+extension RouteViewController {
     func setupView() {
         NotificationCenter.default.addObserver(self,
                                                selector: #selector(keyboardWillShow),
@@ -59,14 +60,16 @@ extension RouteViewController{
         fromTextField.autocorrectionType = .no
         toTextField.autocorrectionType = .no
 
+        statusDescription.isHidden = true
 
         // TODO: Insert on localizable
         fromTextField.placeholder = "Origem"
         toTextField.placeholder = "Destino"
 
-        let nib = UINib(nibName: TripViewCell.nibName, bundle: nil)
+        let nib = UINib(nibName: ViewValues.TripViewCell.nibName, bundle: nil)
 
-        tableView.register(nib, forCellReuseIdentifier: TripViewCell.cellIdentifier)
+        tableView.register(nib, forCellReuseIdentifier: ViewValues.TripViewCell.cellIdentifier)
+        tableView.rowHeight = ViewValues.Table.heightForRowTrip
 
         tableView.isHidden = true
         tableView.dataSource = self
@@ -93,7 +96,16 @@ extension RouteViewController{
 
         viewModel?.onServiceError = { [weak self] (serverError) in
             guard let self = self else { return }
-            debugPrint(serverError)
+            self.statusDescription.isHidden = false
+            self.statusDescription.text = serverError.localizedDescription
+            self.tableView.isHidden = true
+        }
+
+        viewModel?.onEngineError = { [weak self] (engineError) in
+            guard let self = self else { return }
+            self.statusDescription.isHidden = false
+            self.statusDescription.text = engineError.localizedDescription
+            self.tableView.isHidden = true
         }
 
         viewModel?.onAllNodes = { [weak self] (allNodes) in
@@ -111,6 +123,7 @@ extension RouteViewController{
 
             self.tripSteps = tripSteps
             self.tableView.isHidden = false
+            self.statusDescription.isHidden = true
             self.tableView.reloadData()
         }
     }
@@ -162,11 +175,15 @@ extension RouteViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return tripSteps
     }
+    func tableView(_ tableView: UITableView,
+                   heightForRowAt indexPath: IndexPath) -> CGFloat{
+        return ViewValues.Table.heightForRowTrip
+    }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
 
         if let cellViewModel = viewModel?.rowViewModel(for: indexPath.row),
-            let cell = tableView.dequeueReusableCell(withIdentifier: TripViewCell.cellIdentifier) as? TripViewCell {
+            let cell = tableView.dequeueReusableCell(withIdentifier: ViewValues.TripViewCell.cellIdentifier) as? TripViewCell {
 
             cell.setupView(viewModel: cellViewModel)
             cellViewModel.setupViewCell()

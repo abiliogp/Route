@@ -38,9 +38,7 @@ class RouteViewModel {
     func setupController() {
         self.onLoading?(true)
         self.service.fetchRoutes { [weak self] result in
-            guard let self = self else {
-                return
-            }
+            guard let self = self else { return }
             switch result {
             case .success(let listConnection):
                 self.routeCalculator.setupNodes(from: listConnection)
@@ -93,18 +91,16 @@ extension RouteViewModel {
             .calculateRoute(from: from,
                             destination: destination) { [weak self] (result) in
 
-                                guard let self = self else {
-                                    return
-                                }
+            guard let self = self else { return }
 
-                                switch result {
-                                    case .success(let node):
-                                        self.setupRowViewModel(node: node)
-                                        self.onTripReady?(self.rowViewModel.count)
-                                    case .failure(let error):
-                                        self.onEngineError?(error)
-                                }
-                                self.onLoading?(false)
+            switch result {
+            case .success(let node):
+                self.setupRowViewModel(node: node)
+                self.onTripReady?(self.rowViewModel.count)
+            case .failure(let error):
+                self.onEngineError?(error)
+            }
+            self.onLoading?(false)
         }
     }
 

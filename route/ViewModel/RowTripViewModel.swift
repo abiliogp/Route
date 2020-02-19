@@ -11,10 +11,6 @@ import UIKit
 
 class RowTripViewModel {
 
-//    var description: String
-//    var stage: StageOptions
-//    var price: Int
-
     var onTitleReady: ((String) -> Void)?
 
     var onPriceReady: ((String) -> Void)?
@@ -27,21 +23,24 @@ class RowTripViewModel {
         self.trip = trip
     }
 
-    func setupViewCell(){
+    func setupViewCell() {
 
         self.onTitleReady?(trip.description)
         self.onPriceReady?("€ \(trip.price)")
 
+        var image: UIImage?
         switch trip.stage {
-            case .arrive:
-                self.onStageImageReady?(UIImage())
-            case .connection:
-                self.onStageImageReady?(UIImage())
-            case .departure:
-                self.onStageImageReady?(UIImage())
+        case .arrive:
+            image = UIImage(named: ViewValues.Images.arrive)
+        case .connection:
+            image = UIImage(named: ViewValues.Images.connection)
+        case .departure:
+            image = UIImage(named: ViewValues.Images.departure)
         }
 
+        if let image = image {
+            self.onStageImageReady?(image)
+        }
     }
-    
 
 }

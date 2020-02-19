@@ -11,6 +11,8 @@ import UIKit
 class TripViewCell: UITableViewCell {
     
     @IBOutlet weak var descriptionLabel: UILabel?
+    @IBOutlet weak var priceLabel: UILabel?
+    @IBOutlet weak var imageStage: UIImageView?
 
     private var viewModel: RowTripViewModel?
 
@@ -27,17 +29,12 @@ class TripViewCell: UITableViewCell {
 
         viewModel?.onPriceReady = {[weak self] (price) in
             guard let self = self else { return }
-            debugPrint(price)
+            self.priceLabel?.text = price
         }
 
         viewModel?.onStageImageReady = {[weak self] (image) in
             guard let self = self else { return }
-            debugPrint(image)
+            self.imageStage?.image = image
         }
     }
-}
-
-extension TripViewCell {
-    static let nibName = "TripCell"
-    static let cellIdentifier =  "TRIP_CELL"
 }

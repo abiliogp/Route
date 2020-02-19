@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15705" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="LJ7-aM-v4V">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15702" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="LJ7-aM-v4V">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15706"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15704"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -19,15 +19,24 @@
                                 <rect key="frame" x="0.0" y="44" width="414" height="690"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                             </tableView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="V4x-hD-i9l">
+                                <rect key="frame" x="107" y="448" width="200" height="0.0"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="200" id="NTp-y3-Ug7"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                             <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="medium" id="PM1-K8-Qx0">
-                                <rect key="frame" x="197" y="438" width="20" height="20"/>
+                                <rect key="frame" x="166" y="417" width="82" height="61"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </activityIndicatorView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="D1k-pU-orP">
                                 <rect key="frame" x="0.0" y="734" width="414" height="128"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="pSe-e4-Sr4">
-                                        <rect key="frame" x="8" y="8" width="414" height="1"/>
+                                        <rect key="frame" x="0.0" y="8" width="422" height="1"/>
                                         <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="1" id="Fg1-Bv-5n6"/>
@@ -44,7 +53,7 @@
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Gpb-41-ZLx">
-                                        <rect key="frame" x="368" y="72" width="30" height="30"/>
+                                        <rect key="frame" x="368" y="72" width="26" height="30"/>
                                         <state key="normal" title="Go"/>
                                         <connections>
                                             <action selector="pressGoButton" destination="LJ7-aM-v4V" eventType="touchUpInside" id="wZJ-Vh-Cxh"/>
@@ -59,12 +68,13 @@
                                     <constraint firstItem="pjD-YI-3I8" firstAttribute="top" secondItem="pSe-e4-Sr4" secondAttribute="top" constant="12" id="OyX-7L-nlA"/>
                                     <constraint firstItem="Gpb-41-ZLx" firstAttribute="bottom" secondItem="rpM-Si-xy2" secondAttribute="bottom" id="Ser-Dc-ZY4"/>
                                     <constraint firstAttribute="trailing" secondItem="pSe-e4-Sr4" secondAttribute="trailingMargin" id="Sm6-JP-sOd"/>
+                                    <constraint firstItem="Gpb-41-ZLx" firstAttribute="leading" secondItem="rpM-Si-xy2" secondAttribute="trailing" constant="18" id="btq-Qo-5Kt"/>
                                     <constraint firstItem="pSe-e4-Sr4" firstAttribute="top" secondItem="D1k-pU-orP" secondAttribute="topMargin" id="ciw-iS-eZr"/>
-                                    <constraint firstAttribute="trailing" secondItem="Gpb-41-ZLx" secondAttribute="trailing" constant="16" id="lfa-Ve-7Og"/>
+                                    <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="Gpb-41-ZLx" secondAttribute="trailing" constant="20" symbolic="YES" id="lfa-Ve-7Og"/>
                                     <constraint firstItem="pjD-YI-3I8" firstAttribute="leading" secondItem="D1k-pU-orP" secondAttribute="leading" constant="32" id="tAy-9Z-W7p"/>
                                     <constraint firstItem="rpM-Si-xy2" firstAttribute="leading" secondItem="pjD-YI-3I8" secondAttribute="leading" id="w9b-qc-FCm"/>
                                     <constraint firstItem="rpM-Si-xy2" firstAttribute="trailing" secondItem="pjD-YI-3I8" secondAttribute="trailing" id="wDH-q2-RcJ"/>
-                                    <constraint firstItem="pSe-e4-Sr4" firstAttribute="leading" secondItem="D1k-pU-orP" secondAttribute="leadingMargin" id="yPo-PC-IFq"/>
+                                    <constraint firstItem="pSe-e4-Sr4" firstAttribute="leading" secondItem="D1k-pU-orP" secondAttribute="leading" id="yPo-PC-IFq"/>
                                 </constraints>
                             </view>
                         </subviews>
@@ -75,7 +85,9 @@
                             <constraint firstItem="D1k-pU-orP" firstAttribute="bottom" secondItem="rCr-1G-Eu1" secondAttribute="bottom" constant="-34" id="Pyv-yH-Gn3"/>
                             <constraint firstItem="Ih5-9s-jvx" firstAttribute="leading" secondItem="srS-Zj-nL0" secondAttribute="leading" id="Uvp-N5-fWb"/>
                             <constraint firstItem="D1k-pU-orP" firstAttribute="leading" secondItem="rCr-1G-Eu1" secondAttribute="leading" id="cuu-jR-Irp"/>
+                            <constraint firstItem="V4x-hD-i9l" firstAttribute="centerY" secondItem="rCr-1G-Eu1" secondAttribute="centerY" id="i8E-TK-AI4"/>
                             <constraint firstItem="Ih5-9s-jvx" firstAttribute="top" secondItem="srS-Zj-nL0" secondAttribute="top" id="pVt-Qx-Hfl"/>
+                            <constraint firstItem="V4x-hD-i9l" firstAttribute="centerX" secondItem="rCr-1G-Eu1" secondAttribute="centerX" id="sQb-oE-JEW"/>
                             <constraint firstItem="D1k-pU-orP" firstAttribute="top" secondItem="Ih5-9s-jvx" secondAttribute="bottom" id="zCc-Fx-JvF"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="srS-Zj-nL0"/>
@@ -84,6 +96,7 @@
                         <outlet property="activityIndicator" destination="PM1-K8-Qx0" id="xBm-ko-W6l"/>
                         <outlet property="finderView" destination="D1k-pU-orP" id="A0o-3z-4mH"/>
                         <outlet property="fromTextField" destination="pjD-YI-3I8" id="M2N-8F-ngj"/>
+                        <outlet property="statusDescription" destination="V4x-hD-i9l" id="J0k-mG-p13"/>
                         <outlet property="tableView" destination="Ih5-9s-jvx" id="r4O-IK-7nB"/>
                         <outlet property="toTextField" destination="rpM-Si-xy2" id="fxQ-M0-IzT"/>
                     </connections>

@@ -18,7 +18,6 @@ class RowTripViewModelTest: XCTestCase {
         routeViewModel = RouteViewModel()
     }
 
-
     func testShouldSetupRowForTrip() {
         //GIVEN
         let expect = XCTestExpectation()
@@ -29,6 +28,7 @@ class RowTripViewModelTest: XCTestCase {
         var steps = 0
         var cityTitle = ""
         var cityPrice = ""
+        var imageStage: UIImage?
 
         //WHEN
         routeViewModel.onTripReady = { (tripSteps) in
@@ -55,6 +55,7 @@ class RowTripViewModelTest: XCTestCase {
         }
 
         rowViewModel.onStageImageReady = { (image) in
+            imageStage = image
             expectRowImage.fulfill()
         }
 
@@ -67,8 +68,8 @@ class RowTripViewModelTest: XCTestCase {
 
         XCTAssertEqual(cityTitle, "Porto")
         XCTAssertEqual(cityPrice, "€ 520")
+        XCTAssertNotNil(imageStage)
 
     }
-
 
 }
