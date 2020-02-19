@@ -8,6 +8,12 @@
 
 /* Begin PBXBuildFile section */
 		E00B6CA423F9984D005032AA /* NodeConnectionTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = E00B6CA323F9984D005032AA /* NodeConnectionTest.swift */; };
+		E05361CC23FD4FA100DD5E1E /* TripCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E05361CB23FD4FA100DD5E1E /* TripCell.xib */; };
+		E05361CE23FD5F0500DD5E1E /* ValuesForTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = E05361CD23FD5F0500DD5E1E /* ValuesForTest.swift */; };
+		E05361D023FD75BF00DD5E1E /* ViewValues.swift in Sources */ = {isa = PBXBuildFile; fileRef = E05361CF23FD75BF00DD5E1E /* ViewValues.swift */; };
+		E05361D223FD82D500DD5E1E /* RowTripViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E05361D123FD82D500DD5E1E /* RowTripViewModel.swift */; };
+		E05361D423FD920100DD5E1E /* RouteTestSuite.swift in Sources */ = {isa = PBXBuildFile; fileRef = E05361D323FD920100DD5E1E /* RouteTestSuite.swift */; };
+		E05361D623FD96AC00DD5E1E /* RowTripViewModelTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = E05361D523FD96AC00DD5E1E /* RowTripViewModelTest.swift */; };
 		E06FF25B23FAF91800654F09 /* UIViewController+Keyboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = E06FF25A23FAF91800654F09 /* UIViewController+Keyboard.swift */; };
 		E0B8434B23FAAF0600757DE1 /* RouteViewModelTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0B8434A23FAAF0600757DE1 /* RouteViewModelTest.swift */; };
 		E0B8434D23FAB2B200757DE1 /* RouteViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0B8434C23FAB2B200757DE1 /* RouteViewModel.swift */; };
@@ -57,6 +63,12 @@
 
 /* Begin PBXFileReference section */
 		E00B6CA323F9984D005032AA /* NodeConnectionTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NodeConnectionTest.swift; sourceTree = "<group>"; };
+		E05361CB23FD4FA100DD5E1E /* TripCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TripCell.xib; sourceTree = "<group>"; };
+		E05361CD23FD5F0500DD5E1E /* ValuesForTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ValuesForTest.swift; sourceTree = "<group>"; };
+		E05361CF23FD75BF00DD5E1E /* ViewValues.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewValues.swift; sourceTree = "<group>"; };
+		E05361D123FD82D500DD5E1E /* RowTripViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RowTripViewModel.swift; sourceTree = "<group>"; };
+		E05361D323FD920100DD5E1E /* RouteTestSuite.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RouteTestSuite.swift; sourceTree = "<group>"; };
+		E05361D523FD96AC00DD5E1E /* RowTripViewModelTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RowTripViewModelTest.swift; sourceTree = "<group>"; };
 		E06FF25A23FAF91800654F09 /* UIViewController+Keyboard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Keyboard.swift"; sourceTree = "<group>"; };
 		E0B8434A23FAAF0600757DE1 /* RouteViewModelTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RouteViewModelTest.swift; sourceTree = "<group>"; };
 		E0B8434C23FAB2B200757DE1 /* RouteViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RouteViewModel.swift; sourceTree = "<group>"; };
@@ -141,6 +153,7 @@
 			isa = PBXGroup;
 			children = (
 				E0B8434C23FAB2B200757DE1 /* RouteViewModel.swift */,
+				E05361D123FD82D500DD5E1E /* RowTripViewModel.swift */,
 				E0CCDB0923FB3BD700631CA1 /* Trip.swift */,
 			);
 			path = ViewModel;
@@ -187,15 +200,18 @@
 		E0BE4FD623F8039000CA8CB0 /* routeTests */ = {
 			isa = PBXGroup;
 			children = (
+				E05361D323FD920100DD5E1E /* RouteTestSuite.swift */,
 				E0BE500E23F824CB00CA8CB0 /* CheapestRouteTest.swift */,
 				E00B6CA323F9984D005032AA /* NodeConnectionTest.swift */,
 				E0B8434A23FAAF0600757DE1 /* RouteViewModelTest.swift */,
+				E05361D523FD96AC00DD5E1E /* RowTripViewModelTest.swift */,
 				E0BE4FFC23F80FF600CA8CB0 /* ReadJsonTest.swift */,
 				E0BE4FD723F8039000CA8CB0 /* RouteTests.swift */,
 				E0BE500A23F81B4700CA8CB0 /* ServiceRouteTest.swift */,
 				E0BE500C23F8239B00CA8CB0 /* ReadJson.swift */,
 				E0BE4FD923F8039000CA8CB0 /* Info.plist */,
 				E0BE4FF123F80A6600CA8CB0 /* connections.json */,
+				E05361CD23FD5F0500DD5E1E /* ValuesForTest.swift */,
 			);
 			path = routeTests;
 			sourceTree = "<group>";
@@ -235,6 +251,7 @@
 				E0BE4FC623F8038D00CA8CB0 /* Main.storyboard */,
 				E0BE4FC923F8039000CA8CB0 /* Assets.xcassets */,
 				E0BE4FCB23F8039000CA8CB0 /* LaunchScreen.storyboard */,
+				E05361CB23FD4FA100DD5E1E /* TripCell.xib */,
 			);
 			path = Resource;
 			sourceTree = "<group>";
@@ -253,6 +270,7 @@
 			children = (
 				E0FBE01B23FAE5250013D647 /* RouteViewController.swift */,
 				E0CCDB0B23FB45B400631CA1 /* TripViewCell.swift */,
+				E05361CF23FD75BF00DD5E1E /* ViewValues.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -362,6 +380,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E05361CC23FD4FA100DD5E1E /* TripCell.xib in Resources */,
 				E0BE4FCD23F8039000CA8CB0 /* LaunchScreen.storyboard in Resources */,
 				E0BE4FCA23F8039000CA8CB0 /* Assets.xcassets in Resources */,
 				E0BE4FC823F8038D00CA8CB0 /* Main.storyboard in Resources */,
@@ -418,10 +437,12 @@
 				E0BE4FBF23F8038D00CA8CB0 /* AppDelegate.swift in Sources */,
 				E0BE4FF723F80BBE00CA8CB0 /* Connection.swift in Sources */,
 				E0B8434D23FAB2B200757DE1 /* RouteViewModel.swift in Sources */,
+				E05361D023FD75BF00DD5E1E /* ViewValues.swift in Sources */,
 				E0CCDB0823FB265800631CA1 /* EngineError.swift in Sources */,
 				E0BE500223F8171600CA8CB0 /* Keys.swift in Sources */,
 				E0BE500923F818CA00CA8CB0 /* ServiceError.swift in Sources */,
 				E0BE4FC123F8038D00CA8CB0 /* SceneDelegate.swift in Sources */,
+				E05361D223FD82D500DD5E1E /* RowTripViewModel.swift in Sources */,
 				E0BE501123F86FA500CA8CB0 /* CheapestRouteCalculator.swift in Sources */,
 				E0CCDB0C23FB45B400631CA1 /* TripViewCell.swift in Sources */,
 				E06FF25B23FAF91800654F09 /* UIViewController+Keyboard.swift in Sources */,
@@ -434,11 +455,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E05361D623FD96AC00DD5E1E /* RowTripViewModelTest.swift in Sources */,
 				E0BE4FD823F8039000CA8CB0 /* RouteTests.swift in Sources */,
 				E0BE500B23F81B4700CA8CB0 /* ServiceRouteTest.swift in Sources */,
 				E0B8434B23FAAF0600757DE1 /* RouteViewModelTest.swift in Sources */,
 				E0BE4FFD23F80FF600CA8CB0 /* ReadJsonTest.swift in Sources */,
+				E05361D423FD920100DD5E1E /* RouteTestSuite.swift in Sources */,
 				E00B6CA423F9984D005032AA /* NodeConnectionTest.swift in Sources */,
+				E05361CE23FD5F0500DD5E1E /* ValuesForTest.swift in Sources */,
 				E0BE500F23F824CB00CA8CB0 /* CheapestRouteTest.swift in Sources */,
 				E0BE500D23F8239B00CA8CB0 /* ReadJson.swift in Sources */,
 			);

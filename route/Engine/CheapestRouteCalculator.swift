@@ -125,7 +125,6 @@ extension CheapestRouteCalculator: CheapestRouteCalculatorProtocol {
         return from
     }
 
-
     func calculateRoute(from: String,
                         destination: String,
                         completionHandler: @escaping (Result<Node, EngineError>) -> Void) {
@@ -169,16 +168,22 @@ extension CheapestRouteCalculator: CheapestRouteCalculatorProtocol {
             return
         }
 
-        DispatchQueue.main.async { [weak self] in
+        DispatchQueue.global().async { [weak self] in
             guard let self = self else {
-                completionHandler(.failure(.notReachable))
+                DispatchQueue.main.async {
+                    completionHandler(.failure(.notReachable))
+                }
                 return
             }
             let destinationNode = self.calculateRoute(from: nodeFrom, destination: nodeTo, nodes: self.nodes)
             if destinationNode == nodeFrom {
-                completionHandler(.failure(.notReachable))
+                DispatchQueue.main.async {
+                    completionHandler(.failure(.notReachable))
+                }
             } else {
-                completionHandler(.success(destinationNode))
+                DispatchQueue.main.async {
+                    completionHandler(.success(destinationNode))
+                }
             }
         }
     }

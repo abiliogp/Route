@@ -36,7 +36,7 @@ class RouteViewModelTest: XCTestCase {
         //THEN
         XCTAssert(loading)
 
-        wait(for: [expectFetch], timeout: 5.0)
+        wait(for: [expectFetch], timeout: ValuesForTest.timeoutExpect)
 
         XCTAssertFalse(loading)
     }
@@ -46,7 +46,7 @@ class RouteViewModelTest: XCTestCase {
         let expect = XCTestExpectation()
         expect.expectedFulfillmentCount = 1
 
-        var nodes = Set<Node>()
+        var nodes = [String]()
 
         //WHEN
         viewModel.onAllNodes = { (allNodes) in
@@ -57,10 +57,10 @@ class RouteViewModelTest: XCTestCase {
         viewModel.setupController()
 
         //THEN
-        wait(for: [expect], timeout: 5.0)
+        wait(for: [expect], timeout: ValuesForTest.timeoutExpect)
 
         // All nodes are included
-        XCTAssertEqual(nodes.count, 7)
+        XCTAssertEqual(nodes.count, ValuesForTest.countAllNodes)
     }
 
     func testShouldGetFromNodesWhenFetchFromService() {
@@ -68,7 +68,7 @@ class RouteViewModelTest: XCTestCase {
         let expect = XCTestExpectation()
         expect.expectedFulfillmentCount = 1
 
-        var nodes = Set<Node>()
+        var nodes = [String]()
 
         //WHEN
         viewModel.onFromNodes = { (fromNodes) in
@@ -82,32 +82,28 @@ class RouteViewModelTest: XCTestCase {
         wait(for: [expect], timeout: 5.0)
 
         // All nodes less Porto, that does not have destination list
-        XCTAssertEqual(nodes.count, 6)
+        XCTAssertEqual(nodes.count, ValuesForTest.countNodesFrom)
     }
 
     func testShoudFindRouteForEntries() {
         //GIVEN
         let expect = XCTestExpectation()
 
-        var listTrip: [Trip]?
+        var steps = 0
 
         //WHEN
-        viewModel.onGetRoute = { (route) in
-            listTrip = route
+        viewModel.onTripReady = { (tripSteps) in
+            steps = tripSteps
             expect.fulfill()
         }
 
         viewModel.setupController()
-        viewModel.findRoute(from: "Sydney", destination: "New York")
+        viewModel.findRoute(from: "New York", destination: "Porto")
 
         //THEN
-        wait(for: [expect], timeout: 10.0)
+        wait(for: [expect], timeout: 10)
 
-        let lastTrip = listTrip?.last!
-
-        XCTAssertEqual(lastTrip?.description, "New York")
-        XCTAssertEqual(lastTrip?.price, 1400)
-        XCTAssertEqual(lastTrip?.stage, StageOptions.arrive)
+        XCTAssertEqual(steps, 5)
     }
 
     func testShoudGetEngineErrorForEntries() {
@@ -126,7 +122,7 @@ class RouteViewModelTest: XCTestCase {
         viewModel.findRoute(from: "", destination: "New York")
 
         //THEN
-        wait(for: [expect], timeout: 10.0)
+        wait(for: [expect], timeout: ValuesForTest.timeoutExpect)
 
         XCTAssertEqual(engineError, EngineError.notValidFrom)
     }

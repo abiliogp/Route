@@ -16,14 +16,14 @@ class RouteViewController: UIViewController {
     @IBOutlet weak var fromTextField: UITextField!
     @IBOutlet weak var toTextField: UITextField!
     @IBOutlet weak var tableView: UITableView!
-    
+
     private var viewModel: RouteViewModel?
 
     private lazy var fromSuggestions: [String] = []
     private lazy var allSuggestions: [String] = []
-    
-    private lazy var tripList = [Trip]()
 
+
+    private lazy var tripSteps = 0
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -32,12 +32,12 @@ class RouteViewController: UIViewController {
         setupMVVM()
     }
 
-    @IBAction func pressGoButton(){
+    @IBAction func pressGoButton() {
         if let from = fromTextField.text, let destination = toTextField.text{
             viewModel?.findRoute(from: from, destination: destination)
         }
     }
-    
+
 }
 
 extension RouteViewController{
@@ -51,15 +51,24 @@ extension RouteViewController{
                                                name: UIResponder.keyboardWillHideNotification,
                                                object: nil)
 
+        fromTextField.tag = ViewValues.Tag.textFieldFrom
+        toTextField.tag =  ViewValues.Tag.textFieldTo
+
         fromTextField.delegate = self
         toTextField.delegate = self
         fromTextField.autocorrectionType = .no
         toTextField.autocorrectionType = .no
 
+
         // TODO: Insert on localizable
         fromTextField.placeholder = "Origem"
         toTextField.placeholder = "Destino"
 
+        let nib = UINib(nibName: TripViewCell.nibName, bundle: nil)
+
+        tableView.register(nib, forCellReuseIdentifier: TripViewCell.cellIdentifier)
+
+        tableView.isHidden = true
         tableView.dataSource = self
 
     }
@@ -89,27 +98,19 @@ extension RouteViewController{
 
         viewModel?.onAllNodes = { [weak self] (allNodes) in
             guard let self = self else { return }
-            allNodes.forEach { (node) in
-                self.allSuggestions.append(node.description)
-            }
-            debugPrint(allNodes.count)
+            self.allSuggestions.append(contentsOf: allNodes)
         }
 
         viewModel?.onFromNodes = { [weak self] (fromNodes) in
             guard let self = self else { return }
-            fromNodes.forEach { (node) in
-                self.fromSuggestions.append(node.description)
-            }
-            debugPrint(fromNodes.count)
+            self.fromSuggestions.append(contentsOf: fromNodes)
         }
-        
-        viewModel?.onGetRoute = { [weak self] (route) in
+
+        viewModel?.onTripReady = { [weak self] (tripSteps) in
             guard let self = self else { return }
-            route.forEach { (trip) in
-                debugPrint(trip.description)
-            }
-            self.tripList.removeAll()
-            self.tripList.append(contentsOf: route)
+
+            self.tripSteps = tripSteps
+            self.tableView.isHidden = false
             self.tableView.reloadData()
         }
     }
@@ -121,7 +122,11 @@ extension RouteViewController: UITextFieldDelegate {
                    shouldChangeCharactersIn range: NSRange,
                    replacementString string: String) -> Bool {
 
-        return !autoCompleteText(in: textField, using: string, suggestions: allSuggestions)
+        if textField.tag == ViewValues.Tag.textFieldFrom {
+            return !autoCompleteText(in: textField, using: string, suggestions: fromSuggestions)
+        } else {
+            return !autoCompleteText(in: textField, using: string, suggestions: allSuggestions)
+        }
     }
 
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
@@ -155,18 +160,21 @@ extension RouteViewController: UITextFieldDelegate {
 extension RouteViewController: UITableViewDataSource {
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return tripList.count
+        return tripSteps
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
 
-        if let cell = tableView.dequeueReusableCell(withIdentifier: "TRIP_CELL") as? TripViewCell {
+        if let cellViewModel = viewModel?.rowViewModel(for: indexPath.row),
+            let cell = tableView.dequeueReusableCell(withIdentifier: TripViewCell.cellIdentifier) as? TripViewCell {
 
-            cell.setupView(trip: tripList[indexPath.row])
+            cell.setupView(viewModel: cellViewModel)
+            cellViewModel.setupViewCell()
+
             return cell
+        } else {
+            return UITableViewCell()
         }
-
-        return UITableViewCell()
     }
 
 }
