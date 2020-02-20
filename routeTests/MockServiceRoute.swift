@@ -9,30 +9,30 @@
 import Foundation
 @testable import route
 
-class MockServiceRoute: ServiceRouteProtocol{
+class MockServiceRoute: ServiceRouteProtocol {
 
     var forceDecodeError = false
     var forceUnavailableError = false
 
     func fetchRoutes(completionHandler: @escaping (Result<ListConnection, ServiceError>) -> Void) {
-        if forceDecodeError{
+        if forceDecodeError {
             completionHandler(.failure(.decodeError))
-        } else if forceUnavailableError{
+        } else if forceUnavailableError {
             completionHandler(.failure(.unavailable))
-        } else{
+        } else {
             do {
                 let listConnections = try ReadJson().loadDataFromFile(named: "connections",
                                                                       ofType: ".json",
                                                                       typeClass: ListConnection.self)
 
                 completionHandler(.success(listConnections))
-            } catch{
+            } catch {
                 completionHandler(.failure(.decodeError))
             }
         }
     }
 
-    func clear(){
+    func clear() {
         forceDecodeError = false
         forceUnavailableError = false
     }

@@ -25,12 +25,12 @@ class RouteViewModel {
     var onEngineError: ((EngineError) -> Void)?
 
     private var service: ServiceRouteProtocol
-    private var routeCalculator: CheapestRouteCalculator
+    private var routeCalculator: CheapestRouteCalculatorProtocol
 
     private lazy var rowViewModel: [RowTripViewModel] = []
 
     init(service: ServiceRouteProtocol = Service.shared,
-         routeCalculator: CheapestRouteCalculator = CheapestRouteCalculator.shared) {
+         routeCalculator: CheapestRouteCalculatorProtocol = CheapestRouteCalculator.shared) {
         self.service = service
         self.routeCalculator = routeCalculator
     }

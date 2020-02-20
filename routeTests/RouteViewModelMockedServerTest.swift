@@ -68,6 +68,7 @@ class RouteViewModelMockedServerTest: XCTestCase {
         let expect = XCTestExpectation()
         expect.expectedFulfillmentCount = 1
 
+        mockService.clear()
         mockService.forceDecodeError = true
 
         var error: ServiceError!
@@ -90,6 +91,7 @@ class RouteViewModelMockedServerTest: XCTestCase {
         let expect = XCTestExpectation()
         expect.expectedFulfillmentCount = 1
 
+        mockService.clear()
         mockService.forceUnavailableError = true
 
         var error: ServiceError!

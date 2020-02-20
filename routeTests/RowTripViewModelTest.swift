@@ -181,7 +181,7 @@ class RowTripViewModelTest: XCTestCase {
     func testShouldNotSetupRowForIndexOutOfBounds() {
         //GIVEN
         let expect = XCTestExpectation()
-        
+
         //WHEN
         routeViewModel.onTripReady = { (tripSteps) in
             expect.fulfill()

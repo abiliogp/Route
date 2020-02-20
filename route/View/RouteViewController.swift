@@ -23,12 +23,12 @@ class RouteViewController: UIViewController {
     private lazy var fromSuggestions: [String] = []
     private lazy var allSuggestions: [String] = []
 
-
     private lazy var tripSteps = 0
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        setupKeyboardObserver()
         setupView()
         setupMVVM()
     }
@@ -42,37 +42,19 @@ class RouteViewController: UIViewController {
 }
 
 extension RouteViewController {
+
     func setupView() {
-        NotificationCenter.default.addObserver(self,
-                                               selector: #selector(keyboardWillShow),
-                                               name: UIResponder.keyboardWillShowNotification,
-                                               object: nil)
-        NotificationCenter.default.addObserver(self,
-                                               selector: #selector(keyboardWillHide),
-                                               name: UIResponder.keyboardWillHideNotification,
-                                               object: nil)
+        setupTextField(textField: fromTextField,
+                       tag: ViewValues.Tag.textFieldFrom,
+                       placeholderKey: Keys.RouteViewController.placeholderFrom)
 
-        fromTextField.tag = ViewValues.Tag.textFieldFrom
-        toTextField.tag =  ViewValues.Tag.textFieldTo
+        setupTextField(textField: toTextField,
+                       tag: ViewValues.Tag.textFieldTo,
+                       placeholderKey: Keys.RouteViewController.placeholderTo)
 
-        fromTextField.delegate = self
-        toTextField.delegate = self
-        fromTextField.autocorrectionType = .no
-        toTextField.autocorrectionType = .no
+        setupTableView()
 
         statusDescription.isHidden = true
-
-        fromTextField.placeholder = NSLocalizedString("FROM", comment: "FROM")
-        toTextField.placeholder = NSLocalizedString("TO", comment: "TO")
-
-        let nib = UINib(nibName: ViewValues.TripViewCell.nibName, bundle: nil)
-
-        tableView.register(nib, forCellReuseIdentifier: ViewValues.TripViewCell.cellIdentifier)
-        tableView.rowHeight = ViewValues.Table.heightForRowTrip
-
-        tableView.isHidden = true
-        tableView.dataSource = self
-
     }
 
     func setupMVVM() {
@@ -130,6 +112,13 @@ extension RouteViewController {
 
 extension RouteViewController: UITextFieldDelegate {
 
+    private func setupTextField(textField: UITextField, tag: Int, placeholderKey: String) {
+        textField.tag = tag
+        textField.autocorrectionType = .no
+        textField.placeholder = NSLocalizedString(placeholderKey, comment: placeholderKey)
+        textField.delegate = self
+    }
+
     func textField(_ textField: UITextField,
                    shouldChangeCharactersIn range: NSRange,
                    replacementString string: String) -> Bool {
@@ -171,11 +160,21 @@ extension RouteViewController: UITextFieldDelegate {
 
 extension RouteViewController: UITableViewDataSource {
 
+    private func setupTableView() {
+        let nib = UINib(nibName: ViewValues.TripViewCell.nibName, bundle: nil)
+
+        tableView.register(nib, forCellReuseIdentifier: ViewValues.TripViewCell.cellIdentifier)
+        tableView.rowHeight = ViewValues.Table.heightForRowTrip
+
+        tableView.isHidden = true
+        tableView.dataSource = self
+    }
+
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return tripSteps
     }
     func tableView(_ tableView: UITableView,
-                   heightForRowAt indexPath: IndexPath) -> CGFloat{
+                   heightForRowAt indexPath: IndexPath) -> CGFloat {
         return ViewValues.Table.heightForRowTrip
     }
 

@@ -10,6 +10,10 @@ import Foundation
 
 protocol CheapestRouteCalculatorProtocol {
 
+    var nodes: Set<Node> { get }
+
+    var fromNodes: Set<Node> { get }
+
     func setupNodes(from: ListConnection)
 
     func createNodes(from: ListConnection) -> Set<Node>

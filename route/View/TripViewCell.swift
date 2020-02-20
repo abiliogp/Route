@@ -9,7 +9,7 @@
 import UIKit
 
 class TripViewCell: UITableViewCell {
-    
+
     @IBOutlet weak var descriptionLabel: UILabel?
     @IBOutlet weak var priceLabel: UILabel?
     @IBOutlet weak var imageStage: UIImageView?

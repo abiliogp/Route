@@ -9,16 +9,16 @@
 import Foundation
 
 class ReadJson {
-    
+
     func loadDataFromFile<T>(named: String,
                              ofType: String,
                              typeClass: T.Type) throws -> T where T: Decodable {
-        
+
         let testBundle = Bundle(for: type(of: self))
         let path = testBundle.path(forResource: named, ofType: ofType)
         let data = try Data(contentsOf: URL(fileURLWithPath: path!))
         let dto = try JSONDecoder().decode(T.self, from: data)
         return dto
     }
-    
+
 }

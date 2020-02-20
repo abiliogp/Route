@@ -18,8 +18,9 @@ class RouteTestSuite: XCTestCase {
         XCTestSuite(forTestCaseClass: ServiceRouteTest.self).tests.forEach { suite.addTest($0)}
         XCTestSuite(forTestCaseClass: RowTripViewModelTest.self).tests.forEach { suite.addTest($0)}
         XCTestSuite(forTestCaseClass: EngineErrorTest.self).tests.forEach { suite.addTest($0)}
-         XCTestSuite(forTestCaseClass: ServiceErrorTest.self).tests.forEach { suite.addTest($0)}
-         XCTestSuite(forTestCaseClass: RouteViewModelMockedServerTest.self).tests.forEach { suite.addTest($0)}
+        XCTestSuite(forTestCaseClass: ServiceErrorTest.self).tests.forEach { suite.addTest($0)}
+        XCTestSuite(forTestCaseClass: RouteViewModelMockedServerTest.self).tests.forEach { suite.addTest($0)}
+        XCTestSuite(forTestCaseClass: RouteViewModelMockedEngineTest.self).tests.forEach { suite.addTest($0)}
         return suite
     }
 

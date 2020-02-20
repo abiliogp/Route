@@ -90,9 +90,9 @@ class CheapestRouteTest: XCTestCase {
         let expect = XCTestExpectation()
 
         CheapestRouteCalculator.shared.nodes.removeAll()
-        
+
         CheapestRouteCalculator.shared.calculateRoute(from: "Sydney", destination: "Porto") { (result) in
-            switch result{
+            switch result {
             case .success(let node):
                 XCTAssertFalse(true)
             case .failure(let engineError):

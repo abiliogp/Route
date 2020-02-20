@@ -19,11 +19,10 @@ public struct ViewValues {
         static let connection = "connection"
         static let departure = "departure"
     }
-    
+
     struct Table {
         static let heightForRowTrip: CGFloat = 100
     }
-
 
     struct TripViewCell {
         static let nibName = "TripCell"
