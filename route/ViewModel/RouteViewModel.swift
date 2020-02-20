@@ -64,19 +64,13 @@ class RouteViewModel {
         var currentNode = node
         while let lastNode = currentNode.nodeFromStart {
             currentNode = lastNode
-            if lastNode.nodeFromStart == nil {
-                let trip = Trip(description: currentNode.description,
-                                stage: .departure,
-                                price: currentNode.priceFromStart)
+            let stage: StageOptions = lastNode.nodeFromStart == nil ? .departure : .connection
 
-                self.rowViewModel.append(RowTripViewModel(trip: trip))
-            } else {
-                let trip = Trip(description: currentNode.description,
-                                stage: .connection,
-                                price: currentNode.priceFromStart)
+            let trip = Trip(description: currentNode.description,
+                            stage: stage,
+                            price: currentNode.priceFromStart)
 
-                self.rowViewModel.append(RowTripViewModel(trip: trip))
-            }
+            self.rowViewModel.append(RowTripViewModel(trip: trip))
         }
 
         self.rowViewModel.reverse()
