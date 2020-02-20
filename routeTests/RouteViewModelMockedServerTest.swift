@@ -1,21 +1,23 @@
 //
-//  RouteViewModelTest.swift
+//  RouteViewModelMockedServerTest.swift
 //  routeTests
 //
-//  Created by Abilio Gambim Parada on 17/02/2020.
+//  Created by Abilio Gambim Parada on 20/02/2020.
 //  Copyright © 2020 Abilio Gambim Parada. All rights reserved.
 //
 
 import XCTest
 @testable import route
 
-class RouteViewModelTest: XCTestCase {
+class RouteViewModelMockedServerTest: XCTestCase {
 
     var viewModel: RouteViewModel!
+    var mockService: MockServiceRoute!
 
     override func setUp() {
         super.setUp()
-        viewModel = RouteViewModel()
+        mockService = MockServiceRoute()
+        viewModel = RouteViewModel(service: mockService)
     }
 
     func testShouldShowLoadWhenFetchFromService() {
@@ -34,8 +36,6 @@ class RouteViewModelTest: XCTestCase {
         viewModel.setupController()
 
         //THEN
-        XCTAssert(loading)
-
         wait(for: [expectFetch], timeout: ValuesForTest.timeoutExpect)
 
         XCTAssertFalse(loading)
@@ -63,67 +63,48 @@ class RouteViewModelTest: XCTestCase {
         XCTAssertEqual(nodes.count, ValuesForTest.countAllNodes)
     }
 
-    func testShouldGetFromNodesWhenFetchFromService() {
+    func testShouldGetDecodeError() {
         //GIVEN
         let expect = XCTestExpectation()
         expect.expectedFulfillmentCount = 1
 
-        var nodes = [String]()
+        mockService.forceDecodeError = true
 
-        //WHEN
-        viewModel.onFromNodes = { (fromNodes) in
-            nodes = fromNodes
+        var error: ServiceError!
+
+        viewModel.onServiceError = { (serviceError) in
+            error = serviceError
             expect.fulfill()
         }
 
         viewModel.setupController()
-
-        //THEN
-        wait(for: [expect], timeout: 5.0)
-
-        // All nodes less Porto, that does not have destination list
-        XCTAssertEqual(nodes.count, ValuesForTest.countNodesFrom)
-    }
-
-    func testShoudFindRouteForEntries() {
-        //GIVEN
-        let expect = XCTestExpectation()
-
-        var steps = 0
-
-        //WHEN
-        viewModel.onTripReady = { (tripSteps) in
-            steps = tripSteps
-            expect.fulfill()
-        }
-
-        viewModel.setupController()
-        viewModel.findRoute(from: "Tokyo", destination: "Porto")
 
         //THEN
         wait(for: [expect], timeout: ValuesForTest.timeoutExpect)
 
-        XCTAssertEqual(steps, 3)
+        XCTAssertEqual(error, ServiceError.decodeError)
     }
 
-    func testShoudGetEngineErrorForEntries() {
+    func testShouldGetUnavailableError() {
         //GIVEN
         let expect = XCTestExpectation()
+        expect.expectedFulfillmentCount = 1
 
-        var engineError: EngineError?
+        mockService.forceUnavailableError = true
 
-        //WHEN
-        viewModel.onEngineError = { (error) in
-            engineError = error
+        var error: ServiceError!
+
+        viewModel.onServiceError = { (serviceError) in
+            error = serviceError
             expect.fulfill()
         }
 
         viewModel.setupController()
-        viewModel.findRoute(from: "", destination: "New York")
 
         //THEN
         wait(for: [expect], timeout: ValuesForTest.timeoutExpect)
 
-        XCTAssertEqual(engineError, EngineError.notValidFrom)
+        XCTAssertEqual(error, ServiceError.unavailable)
     }
+
 }

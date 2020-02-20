@@ -104,7 +104,8 @@ extension RouteViewModel {
         }
     }
 
-    func rowViewModel(for index: Int) -> RowTripViewModel {
+    func rowViewModel(for index: Int) -> RowTripViewModel? {
+        guard index < rowViewModel.count else { return nil }
         return self.rowViewModel[index]
     }
 }

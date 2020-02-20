@@ -18,6 +18,8 @@
 		E08C7D3123FEAA8700827265 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = E08C7D3323FEAA8700827265 /* Localizable.strings */; };
 		E08C7D3523FEB39600827265 /* EngineErrorTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = E08C7D3423FEB39600827265 /* EngineErrorTest.swift */; };
 		E08C7D3723FEB4BD00827265 /* ServiceErrorTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = E08C7D3623FEB4BD00827265 /* ServiceErrorTest.swift */; };
+		E08C7D3923FECD9200827265 /* MockServiceRoute.swift in Sources */ = {isa = PBXBuildFile; fileRef = E08C7D3823FECD9200827265 /* MockServiceRoute.swift */; };
+		E08C7D3B23FECF0300827265 /* RouteViewModelMockedServerTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = E08C7D3A23FECF0300827265 /* RouteViewModelMockedServerTest.swift */; };
 		E0B8434B23FAAF0600757DE1 /* RouteViewModelTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0B8434A23FAAF0600757DE1 /* RouteViewModelTest.swift */; };
 		E0B8434D23FAB2B200757DE1 /* RouteViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0B8434C23FAB2B200757DE1 /* RouteViewModel.swift */; };
 		E0BE4FBF23F8038D00CA8CB0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0BE4FBE23F8038D00CA8CB0 /* AppDelegate.swift */; };
@@ -25,7 +27,6 @@
 		E0BE4FC823F8038D00CA8CB0 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E0BE4FC623F8038D00CA8CB0 /* Main.storyboard */; };
 		E0BE4FCA23F8039000CA8CB0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E0BE4FC923F8039000CA8CB0 /* Assets.xcassets */; };
 		E0BE4FCD23F8039000CA8CB0 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E0BE4FCB23F8039000CA8CB0 /* LaunchScreen.storyboard */; };
-		E0BE4FD823F8039000CA8CB0 /* RouteTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0BE4FD723F8039000CA8CB0 /* RouteTests.swift */; };
 		E0BE4FE323F8039000CA8CB0 /* RouteUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0BE4FE223F8039000CA8CB0 /* RouteUITests.swift */; };
 		E0BE4FF223F80A6600CA8CB0 /* connections.json in Resources */ = {isa = PBXBuildFile; fileRef = E0BE4FF123F80A6600CA8CB0 /* connections.json */; };
 		E0BE4FF423F80B9A00CA8CB0 /* ListConnection.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0BE4FF323F80B9A00CA8CB0 /* ListConnection.swift */; };
@@ -76,6 +77,8 @@
 		E08C7D3223FEAA8700827265 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		E08C7D3423FEB39600827265 /* EngineErrorTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EngineErrorTest.swift; sourceTree = "<group>"; };
 		E08C7D3623FEB4BD00827265 /* ServiceErrorTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceErrorTest.swift; sourceTree = "<group>"; };
+		E08C7D3823FECD9200827265 /* MockServiceRoute.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockServiceRoute.swift; sourceTree = "<group>"; };
+		E08C7D3A23FECF0300827265 /* RouteViewModelMockedServerTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RouteViewModelMockedServerTest.swift; sourceTree = "<group>"; };
 		E0B8434A23FAAF0600757DE1 /* RouteViewModelTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RouteViewModelTest.swift; sourceTree = "<group>"; };
 		E0B8434C23FAB2B200757DE1 /* RouteViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RouteViewModel.swift; sourceTree = "<group>"; };
 		E0BE4FBB23F8038D00CA8CB0 /* route.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = route.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -86,7 +89,6 @@
 		E0BE4FCC23F8039000CA8CB0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		E0BE4FCE23F8039000CA8CB0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E0BE4FD323F8039000CA8CB0 /* routeTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = routeTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		E0BE4FD723F8039000CA8CB0 /* RouteTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RouteTests.swift; sourceTree = "<group>"; };
 		E0BE4FD923F8039000CA8CB0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E0BE4FDE23F8039000CA8CB0 /* routeUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = routeUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		E0BE4FE223F8039000CA8CB0 /* RouteUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RouteUITests.swift; sourceTree = "<group>"; };
@@ -210,12 +212,13 @@
 				E0BE500E23F824CB00CA8CB0 /* CheapestRouteTest.swift */,
 				E00B6CA323F9984D005032AA /* NodeConnectionTest.swift */,
 				E0B8434A23FAAF0600757DE1 /* RouteViewModelTest.swift */,
+				E08C7D3A23FECF0300827265 /* RouteViewModelMockedServerTest.swift */,
 				E05361D523FD96AC00DD5E1E /* RowTripViewModelTest.swift */,
 				E0BE4FFC23F80FF600CA8CB0 /* ReadJsonTest.swift */,
-				E0BE4FD723F8039000CA8CB0 /* RouteTests.swift */,
 				E0BE500A23F81B4700CA8CB0 /* ServiceRouteTest.swift */,
 				E08C7D3423FEB39600827265 /* EngineErrorTest.swift */,
 				E08C7D3623FEB4BD00827265 /* ServiceErrorTest.swift */,
+				E08C7D3823FECD9200827265 /* MockServiceRoute.swift */,
 				E0BE500C23F8239B00CA8CB0 /* ReadJson.swift */,
 				E0BE4FD923F8039000CA8CB0 /* Info.plist */,
 				E0BE4FF123F80A6600CA8CB0 /* connections.json */,
@@ -466,8 +469,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				E08C7D3723FEB4BD00827265 /* ServiceErrorTest.swift in Sources */,
+				E08C7D3B23FECF0300827265 /* RouteViewModelMockedServerTest.swift in Sources */,
+				E08C7D3923FECD9200827265 /* MockServiceRoute.swift in Sources */,
 				E05361D623FD96AC00DD5E1E /* RowTripViewModelTest.swift in Sources */,
-				E0BE4FD823F8039000CA8CB0 /* RouteTests.swift in Sources */,
 				E0BE500B23F81B4700CA8CB0 /* ServiceRouteTest.swift in Sources */,
 				E0B8434B23FAAF0600757DE1 /* RouteViewModelTest.swift in Sources */,
 				E0BE4FFD23F80FF600CA8CB0 /* ReadJsonTest.swift in Sources */,
