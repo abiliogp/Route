@@ -62,9 +62,8 @@ extension RouteViewController {
 
         statusDescription.isHidden = true
 
-        // TODO: Insert on localizable
-        fromTextField.placeholder = "Origem"
-        toTextField.placeholder = "Destino"
+        fromTextField.placeholder = NSLocalizedString("FROM", comment: "FROM")
+        toTextField.placeholder = NSLocalizedString("TO", comment: "TO")
 
         let nib = UINib(nibName: ViewValues.TripViewCell.nibName, bundle: nil)
 

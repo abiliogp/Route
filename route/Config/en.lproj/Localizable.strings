@@ -1,0 +1,23 @@
+//
+//  Localizable.strings
+//  route
+//
+//  Created by Abilio Gambim Parada on 20/02/2020.
+//  Copyright © 2020 Abilio Gambim Parada. All rights reserved.
+//
+
+//RouteViewController
+"FROM" = "From";
+"TO" = "To";
+"GO" = "Go!";
+
+//Engine Error
+"EMPTY_LIST" = "Node list not ready yet!";
+"NOT_VALID_FROM" = "Please, select another from!";
+"NOT_VALID_TO" = "Please, select another to!";
+"NOT_REACHEABLE" = "Sorry, Not reacheable destination!";
+"SAME_FROM_AND_TO" = "Same from and to!";
+
+//Service Error
+"UNAVAILABLE" = "Sorry, try again later!";
+"DECODE_ERROR" = "Please, check your data and and try again!";

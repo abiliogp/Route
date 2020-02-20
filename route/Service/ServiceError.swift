@@ -12,3 +12,15 @@ enum ServiceError: Error {
     case unavailable
     case decodeError
 }
+
+extension ServiceError: LocalizedError {
+
+    public var errorDescription: String? {
+        switch self {
+        case .unavailable:
+        return NSLocalizedString(Keys.ServiceError.unavailabel, comment: "UNAVAILABLE")
+        case .decodeError:
+        return NSLocalizedString(Keys.ServiceError.decodeError, comment: "DECODE_ERROR")
+        }
+    }
+}

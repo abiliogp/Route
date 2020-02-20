@@ -98,15 +98,12 @@ extension CheapestRouteCalculator: CheapestRouteCalculatorProtocol {
             }
 
             if currentNode.identifier == destination.identifier {
-                debugPrint("destination: \(currentNode.description)")
                 return currentNode
             }
 
             // Mark as visited
             currentNode.visited = true
             toBeVisited.remove(currentNode)
-
-            debugPrint("Visited: \(currentNode.description)")
 
             for edged in currentNode.destinations {
                 let nodeTo = edged.0
