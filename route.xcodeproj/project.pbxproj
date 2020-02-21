@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		E00B6CA423F9984D005032AA /* NodeConnectionTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = E00B6CA323F9984D005032AA /* NodeConnectionTest.swift */; };
+		E032F4CD2400728D00B4FA52 /* MapTripViewModelTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = E032F4CC2400728D00B4FA52 /* MapTripViewModelTest.swift */; };
 		E05361CC23FD4FA100DD5E1E /* TripCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E05361CB23FD4FA100DD5E1E /* TripCell.xib */; };
 		E05361CE23FD5F0500DD5E1E /* ValuesForTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = E05361CD23FD5F0500DD5E1E /* ValuesForTest.swift */; };
 		E05361D023FD75BF00DD5E1E /* ViewValues.swift in Sources */ = {isa = PBXBuildFile; fileRef = E05361CF23FD75BF00DD5E1E /* ViewValues.swift */; };
@@ -72,6 +73,7 @@
 
 /* Begin PBXFileReference section */
 		E00B6CA323F9984D005032AA /* NodeConnectionTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NodeConnectionTest.swift; sourceTree = "<group>"; };
+		E032F4CC2400728D00B4FA52 /* MapTripViewModelTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapTripViewModelTest.swift; sourceTree = "<group>"; };
 		E05361CB23FD4FA100DD5E1E /* TripCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TripCell.xib; sourceTree = "<group>"; };
 		E05361CD23FD5F0500DD5E1E /* ValuesForTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ValuesForTest.swift; sourceTree = "<group>"; };
 		E05361CF23FD75BF00DD5E1E /* ViewValues.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewValues.swift; sourceTree = "<group>"; };
@@ -227,6 +229,7 @@
 				E08C7D3A23FECF0300827265 /* RouteViewModelMockedServerTest.swift */,
 				E08C7D3C23FEE6B700827265 /* RouteViewModelMockedEngineTest.swift */,
 				E05361D523FD96AC00DD5E1E /* RowTripViewModelTest.swift */,
+				E032F4CC2400728D00B4FA52 /* MapTripViewModelTest.swift */,
 				E0BE4FFC23F80FF600CA8CB0 /* ReadJsonTest.swift */,
 				E0BE500A23F81B4700CA8CB0 /* ServiceRouteTest.swift */,
 				E08C7D3423FEB39600827265 /* EngineErrorTest.swift */,
@@ -500,6 +503,7 @@
 				E00B6CA423F9984D005032AA /* NodeConnectionTest.swift in Sources */,
 				E05361CE23FD5F0500DD5E1E /* ValuesForTest.swift in Sources */,
 				E0BE500F23F824CB00CA8CB0 /* CheapestRouteTest.swift in Sources */,
+				E032F4CD2400728D00B4FA52 /* MapTripViewModelTest.swift in Sources */,
 				E0BE500D23F8239B00CA8CB0 /* ReadJson.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -46,18 +46,13 @@ class MapViewController: UIViewController {
 
             var step = 1
             mapTripList.forEach { (mapTrip) in
-                if let latDouble = Double(mapTrip.lat),
-                    let longDouble = Double(mapTrip.long) {
+                let point = self.createPoint(lat: mapTrip.lat,
+                                             long: mapTrip.long,
+                                             title: "\(step):\(mapTrip.name)")
 
-                    let point = self.createPoint(lat: latDouble,
-                                                 long: longDouble,
-                                                 title: "\(step):\(mapTrip.name)")
-
-                    step += 1
-                    self.mapView.addAnnotation(point)
-
-                    source.toggle()
-                }
+                step += 1
+                self.mapView.addAnnotation(point)
+                source.toggle()
             }
 
             self.mapView.showAnnotations(self.mapView.annotations, animated: true)

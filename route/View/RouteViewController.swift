@@ -180,7 +180,9 @@ extension RouteViewController: UITableViewDataSource {
         tableView.register(nib, forCellReuseIdentifier: ViewValues.TripViewCell.cellIdentifier)
         tableView.rowHeight = ViewValues.Table.heightForRowTrip
 
+        tableView.allowsSelection = false
         tableView.isHidden = true
+
         tableView.dataSource = self
     }
 

@@ -10,6 +10,6 @@ import Foundation
 
 struct MapTrip {
     var name: String
-    var lat: String
-    var long: String
+    var lat: Double
+    var long: Double
 }

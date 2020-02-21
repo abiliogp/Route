@@ -28,7 +28,7 @@ class MockEngine: CheapestRouteCalculatorProtocol {
     }
 
     func calculateRoute(from: Node, destination: Node, nodes: Set<Node>) -> Node {
-        return Node(identifier: "", description: "London")
+        return Node(identifier: "", description: "London", lat: 0.0, long: 0.0)
     }
 
     func calculateRoute(from: String,
@@ -38,7 +38,7 @@ class MockEngine: CheapestRouteCalculatorProtocol {
         if let forceErrorEngine = forceErrorEngine {
             completionHandler(.failure(forceErrorEngine))
         } else {
-            completionHandler(.success(Node(identifier: "", description: "London")))
+            completionHandler(.success(Node(identifier: "", description: "London", lat: 0.0, long: 0.0)))
         }
     }
 
