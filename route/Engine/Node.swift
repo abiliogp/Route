@@ -11,35 +11,23 @@ import Foundation
 class Node {
     var identifier: String
     var description: String
+    var lat: Double
+    var long: Double
     var visited: Bool = false
 
     lazy var destinations: [(Node, Int)] = []
     lazy var priceFromStart: Int = Int.max
     var nodeFromStart: Node?
 
-    init(identifier: String, description: String) {
+    init(identifier: String, description: String, lat: Double, long: Double) {
         self.identifier = identifier
         self.description = description
+        self.lat = lat
+        self.long = long
     }
 }
 
 extension Node {
-
-    var lat: String {
-        if identifier.contains(":"){
-            return identifier.components(separatedBy: ":")[0].replacingOccurrences(of: "Lat", with: "")
-        } else {
-            return "Not Set"
-        }
-    }
-
-    var long: String {
-        if identifier.contains(":"){
-            return identifier.components(separatedBy: ":")[1].replacingOccurrences(of: "Long", with: "")
-        } else {
-            return "Not Set"
-        }
-    }
 
     func addNeighbors(node: Node, price: Int) {
         destinations.append((node, price))

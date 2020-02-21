@@ -55,8 +55,17 @@ extension CheapestRouteCalculator: CheapestRouteCalculatorProtocol {
     func createNodes(from: ListConnection) -> Set<Node> {
         var nodeSet = Set<Node>()
         from.connections.forEach { (connection) in
-            nodeSet.insert(Node(identifier: connection.identifierFrom, description: connection.from))
-            nodeSet.insert(Node(identifier: connection.identifierTo, description: connection.to))
+            nodeSet.insert(
+                Node(identifier: connection.identifierFrom,
+                     description: connection.from,
+                     lat: connection.coordinates.from.lat,
+                     long: connection.coordinates.from.long))
+
+            nodeSet.insert(
+                Node(identifier: connection.identifierTo,
+                     description: connection.to,
+                     lat: connection.coordinates.to.lat,
+                     long: connection.coordinates.to.long))
         }
         return nodeSet
     }
