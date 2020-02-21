@@ -22,6 +22,7 @@ public struct ViewValues {
 
     struct Table {
         static let heightForRowTrip: CGFloat = 100
+        static let segueIdentifier = "SHOW_MAP"
     }
 
     struct TripViewCell {

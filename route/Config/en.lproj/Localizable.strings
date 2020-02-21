@@ -10,6 +10,10 @@
 "FROM" = "From";
 "TO" = "To";
 "GO" = "Go!";
+"TITLE_ROUTE" = "Route";
+
+//MapViewController
+"TITLE_MAP" = "Map";
 
 //Engine Error
 "EMPTY_LIST" = "Node list not ready yet!";
