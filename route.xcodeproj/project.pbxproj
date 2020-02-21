@@ -15,6 +15,9 @@
 		E05361D423FD920100DD5E1E /* RouteTestSuite.swift in Sources */ = {isa = PBXBuildFile; fileRef = E05361D323FD920100DD5E1E /* RouteTestSuite.swift */; };
 		E05361D623FD96AC00DD5E1E /* RowTripViewModelTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = E05361D523FD96AC00DD5E1E /* RowTripViewModelTest.swift */; };
 		E06FF25B23FAF91800654F09 /* UIViewController+Keyboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = E06FF25A23FAF91800654F09 /* UIViewController+Keyboard.swift */; };
+		E08AB17223FFF73A00CEB252 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E08AB17123FFF73A00CEB252 /* MapViewController.swift */; };
+		E08AB17424002B2A00CEB252 /* MapTrip.swift in Sources */ = {isa = PBXBuildFile; fileRef = E08AB17324002B2A00CEB252 /* MapTrip.swift */; };
+		E08AB17624002B8000CEB252 /* MapTripViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E08AB17524002B8000CEB252 /* MapTripViewModel.swift */; };
 		E08C7D3123FEAA8700827265 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = E08C7D3323FEAA8700827265 /* Localizable.strings */; };
 		E08C7D3523FEB39600827265 /* EngineErrorTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = E08C7D3423FEB39600827265 /* EngineErrorTest.swift */; };
 		E08C7D3723FEB4BD00827265 /* ServiceErrorTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = E08C7D3623FEB4BD00827265 /* ServiceErrorTest.swift */; };
@@ -76,6 +79,9 @@
 		E05361D323FD920100DD5E1E /* RouteTestSuite.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RouteTestSuite.swift; sourceTree = "<group>"; };
 		E05361D523FD96AC00DD5E1E /* RowTripViewModelTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RowTripViewModelTest.swift; sourceTree = "<group>"; };
 		E06FF25A23FAF91800654F09 /* UIViewController+Keyboard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Keyboard.swift"; sourceTree = "<group>"; };
+		E08AB17123FFF73A00CEB252 /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
+		E08AB17324002B2A00CEB252 /* MapTrip.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapTrip.swift; sourceTree = "<group>"; };
+		E08AB17524002B8000CEB252 /* MapTripViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapTripViewModel.swift; sourceTree = "<group>"; };
 		E08C7D3223FEAA8700827265 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		E08C7D3423FEB39600827265 /* EngineErrorTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EngineErrorTest.swift; sourceTree = "<group>"; };
 		E08C7D3623FEB4BD00827265 /* ServiceErrorTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceErrorTest.swift; sourceTree = "<group>"; };
@@ -166,7 +172,9 @@
 			children = (
 				E0B8434C23FAB2B200757DE1 /* RouteViewModel.swift */,
 				E05361D123FD82D500DD5E1E /* RowTripViewModel.swift */,
+				E08AB17524002B8000CEB252 /* MapTripViewModel.swift */,
 				E0CCDB0923FB3BD700631CA1 /* Trip.swift */,
+				E08AB17324002B2A00CEB252 /* MapTrip.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -287,6 +295,7 @@
 			isa = PBXGroup;
 			children = (
 				E0FBE01B23FAE5250013D647 /* RouteViewController.swift */,
+				E08AB17123FFF73A00CEB252 /* MapViewController.swift */,
 				E0CCDB0B23FB45B400631CA1 /* TripViewCell.swift */,
 				E05361CF23FD75BF00DD5E1E /* ViewValues.swift */,
 			);
@@ -451,6 +460,7 @@
 				E0BE4FF923F80BF700CA8CB0 /* Coordinate.swift in Sources */,
 				E0BE500623F8185700CA8CB0 /* Service.swift in Sources */,
 				E0BE500023F816F800CA8CB0 /* Environment.swift in Sources */,
+				E08AB17223FFF73A00CEB252 /* MapViewController.swift in Sources */,
 				E0BE501323F8871600CA8CB0 /* Node.swift in Sources */,
 				E0CCDB0A23FB3BD700631CA1 /* Trip.swift in Sources */,
 				E0BE4FBF23F8038D00CA8CB0 /* AppDelegate.swift in Sources */,
@@ -462,8 +472,10 @@
 				E0BE500923F818CA00CA8CB0 /* ServiceError.swift in Sources */,
 				E0BE4FC123F8038D00CA8CB0 /* SceneDelegate.swift in Sources */,
 				E05361D223FD82D500DD5E1E /* RowTripViewModel.swift in Sources */,
+				E08AB17424002B2A00CEB252 /* MapTrip.swift in Sources */,
 				E0BE501123F86FA500CA8CB0 /* CheapestRouteCalculator.swift in Sources */,
 				E0CCDB0C23FB45B400631CA1 /* TripViewCell.swift in Sources */,
+				E08AB17624002B8000CEB252 /* MapTripViewModel.swift in Sources */,
 				E06FF25B23FAF91800654F09 /* UIViewController+Keyboard.swift in Sources */,
 				E0BE4FF423F80B9A00CA8CB0 /* ListConnection.swift in Sources */,
 				E0FBE01C23FAE5250013D647 /* RouteViewController.swift in Sources */,

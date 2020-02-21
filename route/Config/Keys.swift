@@ -17,6 +17,16 @@ public struct Keys {
         static let placeholderFrom = "FROM"
         static let placeholderTo = "TO"
         static let buttonGo = "GO"
+        static let titleRoute = "TITLE_ROUTE"
+    }
+
+    struct MapViewController {
+        static let titleMap = "TITLE_MAP"
+        static let identifier = "MAP_VIEW"
+    }
+
+    struct Storyboard {
+        static let main = "Main"
     }
 
     struct EngineError {

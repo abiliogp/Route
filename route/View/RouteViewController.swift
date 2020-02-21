@@ -17,6 +17,7 @@ class RouteViewController: UIViewController {
     @IBOutlet weak var toTextField: UITextField!
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var statusDescription: UILabel!
+    @IBOutlet weak var mapButton: UIButton!
 
     private var viewModel: RouteViewModel?
 
@@ -27,6 +28,9 @@ class RouteViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+
+        title = NSLocalizedString(Keys.RouteViewController.titleRoute,
+                                  comment: Keys.RouteViewController.titleRoute)
 
         setupKeyboardObserver()
         setupView()
@@ -39,6 +43,12 @@ class RouteViewController: UIViewController {
         }
     }
 
+    @IBAction func pressMapButton(_ sender: Any) {
+        if let tripMapViewModel = viewModel?.mapViewModel,
+            let viewController = MapViewController.makeMapViewController(mapTripViewModel: tripMapViewModel) {
+            self.navigationController?.pushViewController(viewController, animated: true)
+        }
+    }
 }
 
 extension RouteViewController {
@@ -55,6 +65,7 @@ extension RouteViewController {
         setupTableView()
 
         statusDescription.isHidden = true
+        mapButton.isHidden = true
     }
 
     func setupMVVM() {
@@ -80,6 +91,7 @@ extension RouteViewController {
             self.statusDescription.isHidden = false
             self.statusDescription.text = serverError.localizedDescription
             self.tableView.isHidden = true
+            self.mapButton.isHidden = true
         }
 
         viewModel?.onEngineError = { [weak self] (engineError) in
@@ -87,6 +99,7 @@ extension RouteViewController {
             self.statusDescription.isHidden = false
             self.statusDescription.text = engineError.localizedDescription
             self.tableView.isHidden = true
+            self.mapButton.isHidden = true
         }
 
         viewModel?.onAllNodes = { [weak self] (allNodes) in
@@ -105,6 +118,7 @@ extension RouteViewController {
             self.tripSteps = tripSteps
             self.tableView.isHidden = false
             self.statusDescription.isHidden = true
+            self.mapButton.isHidden = false
             self.tableView.reloadData()
         }
     }
@@ -181,7 +195,8 @@ extension RouteViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
 
         if let cellViewModel = viewModel?.rowViewModel(for: indexPath.row),
-            let cell = tableView.dequeueReusableCell(withIdentifier: ViewValues.TripViewCell.cellIdentifier) as? TripViewCell {
+            let cell = tableView
+                .dequeueReusableCell(withIdentifier: ViewValues.TripViewCell.cellIdentifier) as? TripViewCell {
 
             cell.setupView(viewModel: cellViewModel)
             cellViewModel.setupViewCell()

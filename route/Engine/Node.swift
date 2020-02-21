@@ -24,6 +24,23 @@ class Node {
 }
 
 extension Node {
+
+    var lat: String {
+        if identifier.contains(":"){
+            return identifier.components(separatedBy: ":")[0].replacingOccurrences(of: "Lat", with: "")
+        } else {
+            return "Not Set"
+        }
+    }
+
+    var long: String {
+        if identifier.contains(":"){
+            return identifier.components(separatedBy: ":")[1].replacingOccurrences(of: "Long", with: "")
+        } else {
+            return "Not Set"
+        }
+    }
+
     func addNeighbors(node: Node, price: Int) {
         destinations.append((node, price))
     }

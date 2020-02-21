@@ -24,6 +24,8 @@ class RouteViewModel {
 
     var onEngineError: ((EngineError) -> Void)?
 
+    var mapViewModel: MapTripViewModel?
+
     private var service: ServiceRouteProtocol
     private var routeCalculator: CheapestRouteCalculatorProtocol
 
@@ -75,6 +77,28 @@ class RouteViewModel {
 
         self.rowViewModel.reverse()
     }
+
+    private func setupMapViewModel(node: Node) {
+
+        var listMapTrip = [MapTrip]()
+
+        listMapTrip.append(MapTrip(name: node.description,
+                                   lat: node.lat,
+                                   long: node.long))
+
+        var currentNode = node
+        while let lastNode = currentNode.nodeFromStart {
+            currentNode = lastNode
+
+            listMapTrip.append(MapTrip(name: currentNode.description,
+                                       lat: currentNode.lat,
+                                       long: currentNode.long))
+
+        }
+
+        listMapTrip.reverse()
+        self.mapViewModel = MapTripViewModel(listMapTrip: listMapTrip)
+    }
 }
 
 extension RouteViewModel {
@@ -90,6 +114,7 @@ extension RouteViewModel {
             switch result {
             case .success(let node):
                 self.setupRowViewModel(node: node)
+                self.setupMapViewModel(node: node)
                 self.onTripReady?(self.rowViewModel.count)
             case .failure(let error):
                 self.onEngineError?(error)
@@ -102,4 +127,5 @@ extension RouteViewModel {
         guard index < rowViewModel.count else { return nil }
         return self.rowViewModel[index]
     }
+
 }

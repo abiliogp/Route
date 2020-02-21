@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15705" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="LJ7-aM-v4V">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15705" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="rTa-Y4-4QW">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15706"/>
@@ -16,7 +16,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Ih5-9s-jvx">
-                                <rect key="frame" x="0.0" y="44" width="414" height="690"/>
+                                <rect key="frame" x="0.0" y="88" width="414" height="646"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                             </tableView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="V4x-hD-i9l">
@@ -56,9 +56,18 @@
                                             <action selector="pressGoButton" destination="LJ7-aM-v4V" eventType="touchUpInside" id="wZJ-Vh-Cxh"/>
                                         </connections>
                                     </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Rvt-Sw-mvT">
+                                        <rect key="frame" x="366" y="17" width="30" height="30"/>
+                                        <state key="normal" title="Map"/>
+                                        <connections>
+                                            <action selector="pressMapButton:" destination="LJ7-aM-v4V" eventType="touchUpInside" id="lju-RI-imA"/>
+                                        </connections>
+                                    </button>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
+                                    <constraint firstItem="Rvt-Sw-mvT" firstAttribute="top" secondItem="pSe-e4-Sr4" secondAttribute="bottom" constant="8" id="23W-aO-nzE"/>
+                                    <constraint firstAttribute="trailing" secondItem="Rvt-Sw-mvT" secondAttribute="trailing" constant="18" id="8eq-pD-19a"/>
                                     <constraint firstAttribute="trailing" secondItem="pjD-YI-3I8" secondAttribute="trailing" constant="64" id="9gi-du-jQt"/>
                                     <constraint firstItem="rpM-Si-xy2" firstAttribute="top" secondItem="pjD-YI-3I8" secondAttribute="bottom" constant="14" id="AEj-dm-9Du"/>
                                     <constraint firstAttribute="height" constant="128" id="MLH-HW-VK7"/>
@@ -67,7 +76,7 @@
                                     <constraint firstAttribute="trailing" secondItem="pSe-e4-Sr4" secondAttribute="trailingMargin" id="Sm6-JP-sOd"/>
                                     <constraint firstItem="Gpb-41-ZLx" firstAttribute="leading" secondItem="rpM-Si-xy2" secondAttribute="trailing" constant="18" id="btq-Qo-5Kt"/>
                                     <constraint firstItem="pSe-e4-Sr4" firstAttribute="top" secondItem="D1k-pU-orP" secondAttribute="topMargin" id="ciw-iS-eZr"/>
-                                    <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="Gpb-41-ZLx" secondAttribute="trailing" constant="20" symbolic="YES" id="lfa-Ve-7Og"/>
+                                    <constraint firstAttribute="trailing" secondItem="Gpb-41-ZLx" secondAttribute="trailing" constant="20" symbolic="YES" id="lfa-Ve-7Og"/>
                                     <constraint firstItem="pjD-YI-3I8" firstAttribute="leading" secondItem="D1k-pU-orP" secondAttribute="leading" constant="32" id="tAy-9Z-W7p"/>
                                     <constraint firstItem="rpM-Si-xy2" firstAttribute="leading" secondItem="pjD-YI-3I8" secondAttribute="leading" id="w9b-qc-FCm"/>
                                     <constraint firstItem="rpM-Si-xy2" firstAttribute="trailing" secondItem="pjD-YI-3I8" secondAttribute="trailing" id="wDH-q2-RcJ"/>
@@ -89,10 +98,12 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="srS-Zj-nL0"/>
                     </view>
+                    <navigationItem key="navigationItem" id="ZXj-UT-brb"/>
                     <connections>
                         <outlet property="activityIndicator" destination="PM1-K8-Qx0" id="xBm-ko-W6l"/>
                         <outlet property="finderView" destination="D1k-pU-orP" id="A0o-3z-4mH"/>
                         <outlet property="fromTextField" destination="pjD-YI-3I8" id="M2N-8F-ngj"/>
+                        <outlet property="mapButton" destination="Rvt-Sw-mvT" id="uI6-0o-F7I"/>
                         <outlet property="statusDescription" destination="V4x-hD-i9l" id="J0k-mG-p13"/>
                         <outlet property="tableView" destination="Ih5-9s-jvx" id="r4O-IK-7nB"/>
                         <outlet property="toTextField" destination="rpM-Si-xy2" id="fxQ-M0-IzT"/>
@@ -100,7 +111,55 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Yo8-D2-Vaw" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-201" y="48"/>
+            <point key="canvasLocation" x="708.69565217391312" y="47.544642857142854"/>
+        </scene>
+        <!--Map View Controller-->
+        <scene sceneID="bOj-y7-wNb">
+            <objects>
+                <viewController storyboardIdentifier="MAP_VIEW" useStoryboardIdentifierAsRestorationIdentifier="YES" id="kvu-eh-eJs" customClass="MapViewController" customModule="route" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="25o-C3-PlI">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="nwD-FV-rwN">
+                                <rect key="frame" x="0.0" y="44" width="414" height="818"/>
+                            </mapView>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="nwD-FV-rwN" firstAttribute="top" secondItem="BOv-qd-Sgi" secondAttribute="top" id="3dp-TX-bjU"/>
+                            <constraint firstItem="nwD-FV-rwN" firstAttribute="trailing" secondItem="BOv-qd-Sgi" secondAttribute="trailing" id="Dw1-jq-8gt"/>
+                            <constraint firstItem="nwD-FV-rwN" firstAttribute="leading" secondItem="BOv-qd-Sgi" secondAttribute="leading" id="Gm1-aH-QdH"/>
+                            <constraint firstItem="nwD-FV-rwN" firstAttribute="bottom" secondItem="BOv-qd-Sgi" secondAttribute="bottom" id="uAK-TA-9mK"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="BOv-qd-Sgi"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="jNd-FL-4lP"/>
+                    <connections>
+                        <outlet property="mapView" destination="nwD-FV-rwN" id="9C5-M3-cpD"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="cxM-cD-BW6" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1768.1159420289857" y="47.544642857142854"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="qYi-Ze-LRU">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="rTa-Y4-4QW" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="i7f-ME-Lqa">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="LJ7-aM-v4V" kind="relationship" relationship="rootViewController" id="Xn9-rb-eoX"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="yOe-Tq-wQz" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-201.44927536231884" y="47.544642857142854"/>
         </scene>
     </scenes>
 </document>
